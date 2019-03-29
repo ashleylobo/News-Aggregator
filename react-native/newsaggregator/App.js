@@ -12,21 +12,20 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import {Button, Item, Input, Icon } from 'native-base';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { createStackNavigator, createAppContainer,  createDrawerNavigator, createSwitchNavigator ,createBottomTabNavigator } from "react-navigation";
-import Login from './Login';
+import Login from './Login/index.js';
 import NearMeMap from './NearMeMap';
+import OK from './ok.js'
+const Mdn = createDrawerNavigator({
+  nearmeMap: {screen:NearMeMap},  
 
-// const Mdn = createDrawerNavigator({
-//   nearmeMap: {screen:NearMeMap},  
+},
 
-// },
-// {
-//   contentComponent: SideBar,
-// },
 
-// )
+)
 
 const AppNavigator = createStackNavigator({
   login: { screen: Login }, 
+ 
 
     },
 {

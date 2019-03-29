@@ -24,10 +24,9 @@ class NearMeMap extends Component {
   render(){
       return (
         
-        <View>
-          <Text>Hello</Text>
-        </View>
-        
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Details Screen</Text>
+      </View>
         
         )
    

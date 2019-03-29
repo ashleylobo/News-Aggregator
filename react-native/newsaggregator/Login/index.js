@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Container, Header, Tab, Tabs, Button, TabHeading, Icon} from 'native-base';
-import SignIn from './SignIn';
-import Register from './Register';
 
 import {NetInfo} from 'react-native';
 
 export default class Login extends Component {
-    static navigationOptions = {
-        header: null,
-    };
+  
 
     constructor(props) {
         super(props);
@@ -24,9 +20,9 @@ export default class Login extends Component {
 
     render() {
         return ( 
-            <View>
-                <Text>Yes</Text>
-            </View>
+            <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+            <Text>Details Screen</Text>
+          </View>
         );
     }
 }
