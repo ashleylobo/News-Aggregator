@@ -16,7 +16,8 @@ import Login from './Login/index.js';
 import NearMeMap from './NearMeMap';
 import OK from './ok.js'
 const Mdn = createDrawerNavigator({
-  nearmeMap: {screen:NearMeMap},  
+  nearmeMap: {screen:NearMeMap}, 
+  secondOption:{screen:OK}, 
 
 },
 
@@ -24,8 +25,10 @@ const Mdn = createDrawerNavigator({
 )
 
 const AppNavigator = createStackNavigator({
-  login: { screen: Login }, 
- 
+  login: { screen: Login },
+  profile:Mdn,
+   
+  
 
     },
 {
