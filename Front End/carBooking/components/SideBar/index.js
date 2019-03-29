@@ -6,36 +6,90 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 //const routes = ["Cam", "Ram"];
 
-const routes = [
-                {title:"prof",name:"Profile", icon:"user"},
-                {title:"rout" , name:"Help Section" , icon:"question-circle"},
-                {title:"filter",name:"Filter", icon:"filter"},
-                {title:"feedback",name:"Feedback", icon:"comments"},
-                {title:"chat",name:"Chatroom", icon:"comment-dots"}];
+// const routes = [
+//                 {title:"prof",name:"Profile", icon:"user"},
+//                 {title:"rout" , name:"Help Section" , icon:"question-circle"},
+//                 {title:"filter",name:"Filter", icon:"filter"},
+//                 {title:"feedback",name:"Feedback", icon:"comments"},
+//                 {title:"chat",name:"Chatroom", icon:"comment-dots"}];
+
+const routes = ["Home", "Chat", "Profile","Extra"];
 
 export default class SideBar extends React.Component {
   render() {
 
    
     return (
-      <View style={styles.container}>
-          <View style={styles.header}></View>
-          <Image style={styles.avatar} source={require('../../assets/images/avatar6.png')}/>
-          <View style={styles.body}>
-            <View style={styles.bodyContent}>
-              <Text style={styles.name}>John Doe</Text>
-              <Text style={styles.info}>UX Designer </Text>
-              <Text style={styles.description}>Lorem ipsum dolor sit amet, isse consequuntur ius an,</Text>
+      // <View style={styles.container}>
+      //     <View style={styles.header}></View>
+          
+      //     <View style={styles.body}>
+      //       <View style={styles.bodyContent}>
+      //         {/* <Text style={styles.name}>John Doe</Text>
+      //         <Text style={styles.info}>UX Designer </Text>
+      //         <Text style={styles.description}>Lorem ipsum dolor sit amet, isse consequuntur ius an,</Text>
               
-              <TouchableOpacity style={styles.buttonContainer}
-                  onPress={() => this.props.navigation.navigate('pastRides')}>
+      //         <TouchableOpacity style={styles.buttonContainer}
+      //             onPress={() => this.props.navigation.navigate('pastRides')}>
                 
-                <Text>Past Rides</Text>  
-              </TouchableOpacity>              
-              
-            </View>
-        </View>
-      </View>
+      //           <Text>Past Rides</Text>  
+      //         </TouchableOpacity> */}
+                
+      //         <Text style={styles.name} 
+      //         onPress={() => this.props.navigation.navigate('login')}>        
+      //            Home
+      //          </Text> 
+      //          <Text style={styles.name} 
+      //         onPress={() => this.props.navigation.navigate('login')}>        
+      //            Favourites
+      //          </Text> 
+      //       </View>
+      //   </View>
+      // </View>
+      
+      <Container>
+        <Content>
+        <Image style={{alignSelf: "stretch",
+              justifyContent: "center",
+              alignItems: "center", height: 120}} source={require('./w.jpg')} >
+          {/* <Image
+            source={{
+              require('./pexels-photo-459225.jpeg')
+            }}
+            style={{
+              height: 120,
+              alignSelf: "stretch",
+              justifyContent: "center",
+              alignItems: "center"
+            }}> */}
+
+</Image>
+
+            {/* <Image
+              square
+              style={{ height: 80, width: 70 }}
+              source={{
+                require('./a.png')
+              }}
+            />
+          </Image> */}
+          <List
+            dataArray={routes}
+            renderRow={data => {
+              return (
+                <ListItem
+                  button
+                  onPress={() => this.props.navigation.navigate(data)}>
+                  <Text>{data}</Text>
+                </ListItem>
+              );
+            }}
+          />
+        </Content>
+      </Container>
+
+      
+    
     );
   }
 }
@@ -43,7 +97,7 @@ export default class SideBar extends React.Component {
 const styles = StyleSheet.create({
   header:{
     backgroundColor: "#00BFFF",
-    height:150,
+    height:40,
   },
   avatar: {
     width: 130,
@@ -57,7 +111,7 @@ const styles = StyleSheet.create({
     marginTop:80
   },
   name:{
-    fontSize:22,
+    fontSize:18,
     color:"#FFFFFF",
     fontWeight:'600',
   },

@@ -109,7 +109,9 @@ handleRickshawPress = () =>{
           <View style={{flex:0.5}}>
             <Button info style={{textAlign:'center',justifyContent:'center', alignSelf: 'stretch', backgroundColor:"#0051a3"}}
                     onPress={ () => this.setState({tumtum:true}) }>
-                <Text style={{color:'white'}} >Book TumTum</Text>
+                {/* <Text style={{color:'white'}} >TV</Text>
+                 */}
+                 <Icon name="ios-home" />
             </Button>
           </View>
 
@@ -118,7 +120,8 @@ handleRickshawPress = () =>{
           <View style={{flex:0.5}}>
             <Button info style={{textAlign:'center',justifyContent:'center', alignSelf: 'stretch', backgroundColor:"#0051a3"}}
                     onPress={ () => this.setState({rickshaw:true}) }>
-                <Text style={{color:'white'}}>Book Rickshaw</Text>
+                {/* <Text style={{color:'white'}}>Home</Text> */}
+                <Icon name="rowing" />
             </Button>
           </View>
 
