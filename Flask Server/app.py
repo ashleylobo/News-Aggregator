@@ -33,12 +33,13 @@ def predict():
     sources=req.get('queryResult').get('parameters').get('source')
     api="https://newsapi.org/v2/everything?language=en&sources="+sources+"&q="+query+"&sortBy=relevancy&apiKey=89cfff18287d4adb919382ad1f8cfecd"
     res=requests.get(api)
-
+    
     text=res.json()['articles'][0]['description']
-    message=[{'text':{'text':[res.json()['articles'][0]['urlToImage'],res.json()['articles'][0]['description']]}}]
-    print(api)
-    print(message)
-    return jsonify( {'fulfillmentMessages':message} )
+    print(text)
+    # message=[{'text':{'text':[res.json()['articles'][0]['urlToImage'],res.json()['articles'][0]['description']]}}]
+    # print(api)
+
+    return jsonify( {'fulfillmentText':text} )
  
 
 
