@@ -22,6 +22,7 @@ import ListTimeTable from './components/ListTimeTable';
 import DriverDummy from './components/DriverDummy';   //rename ur calss and folder path
 import DriverDummyNew from './components/DriverDummyNew'; //rename ur calss and folder path
 import PastRides from './components/PastRides';
+import ChatBot from './components/ChatBot'
 
 
 //-----------------------Drawer navigation Bar ---------------------------------------
@@ -50,6 +51,7 @@ const Mdn = createDrawerNavigator({
 const AppNavigator = createStackNavigator({
   profile: Mdn,
   Login: { screen: LoginStudent }, 
+  chatBot:{screen:ChatBot},
   studentLogin :{screen:LoginStudent},
   driverLogin:{screen:LoginDriver},
   driverdummy:{screen:DriverDummy},             //rename  screen to ur calssName and put dhang ka label instead of driverdummy
