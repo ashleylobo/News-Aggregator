@@ -86,20 +86,20 @@ export default class ListItem extends Component {
                          heading="Sports">
                         <Sports navigation={this.props.navigation} data={routes}/>
                     </Tab>
-                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                    {/* <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
                          tabStyle={{backgroundColor: '', height: 40}}
                          activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="Finance">
                         <Finance navigation={this.props.navigation} data={routes}/>
-                    </Tab>
-                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                    </Tab> */}
+                    {/* <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
                          tabStyle={{backgroundColor: '', height: 40}}
                          activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="Astro">
                         <Entertainment navigation={this.props.navigation} data={routes}/>
-                    </Tab>
+                    </Tab> */}
                     
                 </Tabs>
 

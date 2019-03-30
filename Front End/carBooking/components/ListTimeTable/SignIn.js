@@ -4,7 +4,6 @@ import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,C
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 import InAppBrowser from 'react-native-inappbrowser-reborn'
-import axios from "axios";
 import Share, {ShareSheet} from 'react-native-share';
 const {width: WIDTH} = Dimensions.get('window');
 const Toast = (props) => {
@@ -28,8 +27,10 @@ export default class SignIn extends Component {
             errorMessage: false,
             ShareType:'whatsapp'
         }
-        this.follow=this.follow.bind(this)
-        this.openLink=this.openLink.bind(this)  
+        this.state = {
+          visible: false,
+        }
+        this.openLink=this.openLink.bind(this)
     } 
     
     
@@ -64,16 +65,6 @@ export default class SignIn extends Component {
     }
     
 
-    follow(data){
-      console.log("saved to favourite ")
-      axios.post("http://192.168.43.57:2454/api/addfollow",{data})
-      .then((r)=>{
-console.log("success")
-      })
-.catch((e)=>{
-  console.log("error ",e)
-})
-    }
     async openLink(url) {
       try {
         if (await InAppBrowser.isAvailable()) {
@@ -117,7 +108,7 @@ console.log("success")
     render() {
 
       console.warn(typeof(this.props.data))
-      // console.log("HERE  ",this.props.data)
+      console.log("HERE  ",this.props.data)
         return (
             <ScrollView>
             <List  
@@ -156,16 +147,12 @@ console.log("success")
                     <Thumbnail source={require('./q.jpg')} />
                     <Body style={{flexDirection: 'row'}}>
                     <Body >
-                      <Text>{data.title}</Text>
+                      
+                      <Text onPress={this.handleDoubleTap}>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
-<<<<<<< HEAD
-                    <Icon name="star" style={{ color: '#dae031' }} onPress={()=>{
-                      this.follow(data.source.name)
-                    }} />
-=======
-                    <Icon name="star" style={{ color: '#dae031' }} onPress={this.handleDoubleTap} />
->>>>>>> master
+                    <Toast visible={this.state.visible} message="Example" />
+                    <Icon name="star" style={{ color: '#dae031' }} onPress={() => this.stateChange()} />
                     </Body>
                   </Left>
                 </CardItem>
