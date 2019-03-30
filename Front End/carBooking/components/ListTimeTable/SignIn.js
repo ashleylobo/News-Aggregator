@@ -35,16 +35,19 @@ export default class SignIn extends Component {
                     </Body>
                   </Left>
                 </CardItem>
+                
                 <TouchableOpacity onPress={()=>{
                  Linking.openURL("https://www.google.com")
                }} >
-                <CardItem cardBody  >
-              
+                <CardItem   >
+               
             
                   <Image source={{uri:data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
                 </CardItem>
                 </TouchableOpacity>
-             
+                <CardItem   >
+                  <Text>IDHAR DAAL</Text>
+                </CardItem>
                 <CardItem>
                   <Left>
                     <Button transparent>
