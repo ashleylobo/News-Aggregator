@@ -74,7 +74,7 @@ export default class SignIn extends Component {
                 
                 <TouchableOpacity onPress={()=>{
                 //  Linking.openURL("https://www.google.com")
-                  this.openLink()
+                  this.openLink(data.url)
                }} >
                 <CardItem   >
                
