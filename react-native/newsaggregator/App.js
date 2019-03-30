@@ -26,15 +26,17 @@ import NearMeMap from './NearMeMap';
 
 
 const Mdn = createDrawerNavigator({
-  NearMeMap:{screen:NearMeMap},
+  Login:Login,
+  Language:NearMeMap,
+  
+  
 }
 
 )
 
 const AppNavigator = createStackNavigator({
-  login: { screen: Login },
   profile:Mdn,
-   
+  
   
 
     },

@@ -5,7 +5,9 @@ import {Container, Header, Tab, Tabs, Button, TabHeading, Icon} from 'native-bas
 import {NetInfo} from 'react-native';
 
 export default class Login extends Component {
-  
+    // static navigationOptions={
+    //     header="Login"
+    // }
 
     constructor(props) {
         super(props);
@@ -21,7 +23,7 @@ export default class Login extends Component {
     render() {
         return ( 
             <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-            <Text>Details Screen</Text>
+            <Text>Login Page</Text>
           </View>
         );
     }

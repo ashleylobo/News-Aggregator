@@ -33,7 +33,7 @@ const Mdn = createDrawerNavigator({
   contentComponent: SideBar,
 },
 )
-
+ 
 // const Mdn = createDrawerNavigator({
 //   listTimeTable:{screen:ListTimeTable},
 // },
@@ -46,13 +46,14 @@ const Mdn = createDrawerNavigator({
 
 
 const AppNavigator = createStackNavigator({
-  login: { screen: Login }, 
+  profile: Mdn,
+  Login: { screen: LoginStudent }, 
   studentLogin :{screen:LoginStudent},
   driverLogin:{screen:LoginDriver},
   driverdummy:{screen:DriverDummy},             //rename  screen to ur calssName and put dhang ka label instead of driverdummy
   driverdummynew:{screen:DriverDummyNew},       //rename  screen to ur calssName and put dhang ka label instead of driverdummynew
   pastRides:{screen:PastRides},
-   profile: Mdn,
+   
   // navigateRoute:{screen:NavigateRouteInput},
   // navigateMaps:{screen:NavRouteMaps},
   // filter : { screen : filterScreen },

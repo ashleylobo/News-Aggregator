@@ -124,6 +124,9 @@ handleRickshawPress = () =>{
                 <Icon name="rowing" />
             </Button>
           </View>
+          <View>
+            <Text>Here i am</Text>
+          </View>
 
         </View>
 
