@@ -28,7 +28,7 @@ export default class SignIn extends Component {
               <Card>
                 <CardItem>
                   <Left>
-                    <Thumbnail source={require('./b.png')} />
+                    <Thumbnail source={require('./q.jpg')} />
                     <Body>
                       <Text>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>

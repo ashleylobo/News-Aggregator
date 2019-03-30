@@ -4,14 +4,15 @@ import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SignIn from './SignIn';
 import Register from './Register';
+import General from './General';
 
 
 const routes = [
                 {author :"Jack ",title:"PM Modi's address to nation did not violate model code:EC",description:"Its breaking news!!!",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
-                {author :"William ",title:"rout" ,description:"Its breaking news!!!" ,name:"Help Section" ,url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
-                {author :"William ",title:"filter",description:"Its breaking news!!!",name:"Filter",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
-                {author :"William ",title:"feedback",description:"Its breaking news!!!",name:"Feedback",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
-                {author :"William ",title:"chat",description:"Its breaking news!!!",name:"Chatroom",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"Mueller report release: Democrats demand full report by early April - as it happened" ,description:"Its breaking news!!!" ,name:"Help Section" ,url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/03/28/931/524/694940094001_6018970625001_6018975820001-vs.jpg?ve=1&tl=1",publishedAt:"2019-03-30T07:00:56Z",},
+                {author :"William ",title:"MPs inflict third defeat on Theresa May’s Brexit deal – as it happened",description:"Its breaking news!!!",name:"Filter",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://g8fip1kplyr33r3krz5b97d1-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/GettyImages-656768806-1160x773.jpg",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"If Indira Gandhi Is Credited, Why Should PM Modi Not Be?: Rajnath Singh",description:"Its breaking news!!!",name:"Feedback",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://c.ndtvimg.com/2019-03/ip36rrik_rajnath-singh-gandhinagar-rally_625x300_30_March_19.jpg",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"Brexit: What happens next after latest government defeat?",description:"Its breaking news!!!",name:"Chatroom",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://ichef.bbci.co.uk/news/660/cpsprodpb/FF35/production/_106233356_mediaitem106231222.jpg",publishedAt:"2019-03-30T07:00:56Z", },
                 {author :"William ",title:"prof",description:"Its breaking news!!!",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
                 {author :"William ",title:"rout" ,description:"Its breaking news!!!" ,name:"Help Section" ,url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
                 {author :"William ",title:"filter",description:"Its breaking news!!!",name:"Filter",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
@@ -35,7 +36,7 @@ export default class ListItem extends Component {
                          tabStyle={{backgroundColor: '#fff', height: 40}}
                          
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
-                         heading="Personalised Feed">
+                         heading="FOR YOU">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
 
@@ -44,14 +45,14 @@ export default class ListItem extends Component {
                          tabStyle={{backgroundColor: '#fff', height: 40}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="Trending">
-                        <Register navigation={this.props.navigation}/>
+                        <Register navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: 'black', fontSize: 12}}
                          tabStyle={{backgroundColor: '#fff', height: 40}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="General Elections">
-                        <Register navigation={this.props.navigation}/>
+                        <General navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     
                 </Tabs>
