@@ -66,8 +66,7 @@ const AppNavigator = createStackNavigator({
       headerLeft:(
         <FontAwesome5 name={"bars"} brand style={{paddingLeft:15 , fontSize: 30, color:'white'}} onPress={() => navigation.toggleDrawer()}/>
       ),
-      
-      title:("Student Page"),
+      title:("News"),
       headerTitleStyle: {
         fontWeight: "bold",
         fontSize:30,
