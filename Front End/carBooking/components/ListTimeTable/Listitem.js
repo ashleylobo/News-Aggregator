@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { AppRegistry, Image, StatusBar,Text } from "react-native";
-import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View} from "native-base";
+import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View,Fab} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SignIn from './SignIn';
 import Register from './Register';
@@ -31,10 +31,23 @@ export default class ListItem extends Component {
                 <Header style={{height: 0}} hasTabs/>
                 <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
-                         heading="For You">
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Personalised Feed">
+
+                                 {/* <Fab
+                                  direction="d"
+                                  containerStyle={{ }}
+                                  style={{ backgroundColor: '#5067FF' }}
+                                  position="bottomRight" 
+                                  onPress={ this.goOnline }
+                                  >
+                                  <Icon type="FontAwesome" name="toggle-on"  />
+                                </Fab> */}
+
+
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
 
@@ -43,6 +56,8 @@ export default class ListItem extends Component {
                          tabStyle={{backgroundColor: '#fff', height: 40}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="Trending">
+
+
                         <Register navigation={this.props.navigation}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
