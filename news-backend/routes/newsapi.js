@@ -6,3 +6,5 @@ var router=exp.Router()
 router
 .route('/getnews')
 .get(apicntrlr.getnews)
+
+module.exports=router   

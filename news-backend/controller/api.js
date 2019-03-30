@@ -2,24 +2,17 @@ const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('22284ec06b3e4717ac7dec4364156177');
 
 
-getnews=()=>{
+getnews=(req,res)=>{
+  console.log("hello")
     newsapi.v2.everything({
-    q: 'bitcoin',
-    sources: 'bbc-news,the-verge',
-    domains: 'bbc.co.uk, techcrunch.com',
-    from: '2017-12-01',
-    to: '2017-12-12',
+    sources: 'The Times of India',
     language: 'en',
-    sortBy: 'relevancy',
-    page: 2
+ 
   }).then(response => {
     console.log(response);
-    /*
-      {
-        status: "ok",
-        articles: [...]
-      }
-    */
+    res.send(response.articles)
+
+    
   });
 }
   module.exports={getnews}

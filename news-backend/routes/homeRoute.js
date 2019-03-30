@@ -8,7 +8,7 @@ router
     // console.log("type is ",typeof(req.user))
     res.render('homePage',{req:req})
 })
-
+router
 .route('/registerUser')
 .post((req,res)=>{
     data=req.body.data

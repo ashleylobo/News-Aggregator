@@ -39,7 +39,7 @@ passport.use(new localstrategy(function(username, password, done) {
 ))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
-app.use(isLoggedIn);
+// app.use(isLoggedIn);
 
 //**************************** Routes section ********************************//
 var homeRoute=require('./routes/homeRoute')
@@ -48,8 +48,8 @@ var auth=require('./routes/authentication')
 app.use('/authentication/',auth)
 var users=require('./routes/users')
 app.use('/users/',users)
-var api=require('./routes/api')
-app.use("/api",api)
+var api=require('./routes/newsapi')
+app.use("/api/",api)
 //**************************** Controllers section ********************************//
 
 
