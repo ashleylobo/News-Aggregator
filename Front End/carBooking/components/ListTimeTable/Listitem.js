@@ -46,15 +46,15 @@ export default class ListItem extends Component {
 
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
+                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="Trending">
                         <Register navigation={this.props.navigation}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
+                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="General Elections">
                         <Register navigation={this.props.navigation}/>
                     </Tab>

@@ -5,7 +5,6 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 
 const {width: WIDTH} = Dimensions.get('window');
-
 export default class SignIn extends Component {
     constructor(props)  {
         super(props);
@@ -13,7 +12,6 @@ export default class SignIn extends Component {
             errorMessage: false
         }
     } 
-    
 
     render() {
       console.warn(typeof(this.props.data))
@@ -31,17 +29,22 @@ export default class SignIn extends Component {
                     <Thumbnail source={require('./b.png')} />
                     <Body>
                       <Text>{this.props.data.title}</Text>
-                      <Text note>CNN</Text>
+                      <Text note>Published at : {date}</Text>
                     </Body>
                   </Left>
                 </CardItem>
+                
                 <TouchableOpacity onPress={()=>{
                  Linking.openURL("https://www.google.com")
                }} >
-                <CardItem cardBody  >
-              
+                <CardItem   >
+               
             
                   <Image source={{uri:this.props.data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
+                </CardItem>
+                </TouchableOpacity>
+                <CardItem   >
+                  <Text>IDHAR DAAL</Text>
                 </CardItem>
                 <CardItem>
                   <Left>
@@ -50,6 +53,7 @@ export default class SignIn extends Component {
                       <Text>12 Likes</Text>
                     </Button>
                   </Left>
+                  
                   <Body style={{flexDirection: 'row'}}>
                     
                     <Button transparent>
@@ -63,19 +67,41 @@ export default class SignIn extends Component {
                     
                   </Body>
                   
-                  <Right>
+                  {/* <Right>
                     <Text>Published at : {date}</Text>
-                  </Right>
+                  </Right> */}
                 </CardItem>
               </Card>
             </Content>
           </Container>    
-   
+    //   <Container>
+     
+    //   <Content >
+    //     <Card>
+    //       <CardItem header bordered>
+    //         <Text>Tittle</Text>
+    //       </CardItem>
+    //       <CardItem bordered>
+    //         <Body>
+    //           <Text>
+    //             NativeBase is a free and open source framework that enable
+    //             developers to build
+    //             high-quality mobile apps using React Native iOS and Android
+    //             apps
+    //             with a fusion of ES6.
+    //           </Text>
+    //         </Body>
+    //       </CardItem>
+    //       <CardItem footer bordered>
+    //         <Text>GeekyAnts</Text><Icon name="ios-refresh" />
+    //       </CardItem>
+        
+    //     </Card>
+    //   </Content>
+    // </Container>
         );
     }
 }
-
-
 
 const styles = StyleSheet.create({
     backgroundContainer: {
