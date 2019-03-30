@@ -64,19 +64,19 @@ function isLoggedIn(req, res, next){
   res.redirect("/authentication/login");
 }
 
-let Parser = require('rss-parser');
-let parse = new Parser();
+// let Parser = require('rss-parser');
+// let parse = new Parser();
  
-(async () => {
+// (async () => {
  
-  let feed = await parse.parseURL('https://www.reddit.com/.rss');
-  console.log("\n\n\n \tDATA IS ",feed.title);
+//   let feed = await parse.parseURL('https://www.reddit.com/.rss');
+//   console.log("\n\n\n \tDATA IS ",feed.title);
  
-  feed.items.forEach(item => {
-    console.log(item.title + ':' + item.link)
-  });
+//   feed.items.forEach(item => {
+//     console.log(item.title + ':' + item.link)
+//   });
  
-})();
+// })();
 
 
 app.listen(port,()=>{
