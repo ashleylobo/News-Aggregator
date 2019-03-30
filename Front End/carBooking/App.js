@@ -49,6 +49,7 @@ const Mdn = createDrawerNavigator({
 
 
 const AppNavigator = createStackNavigator({
+  profile: Mdn,
   chatBot:{screen:ChatBot},
   login: { screen: Login }, 
   studentLogin :{screen:LoginStudent},
@@ -56,7 +57,7 @@ const AppNavigator = createStackNavigator({
   driverdummy:{screen:DriverDummy},             //rename  screen to ur calssName and put dhang ka label instead of driverdummy
   driverdummynew:{screen:DriverDummyNew},       //rename  screen to ur calssName and put dhang ka label instead of driverdummynew
   // chatBot:{screen:ChatBot},
-   profile: Mdn,
+   
   // navigateRoute:{screen:NavigateRouteInput},
   // navigateMaps:{screen:NavRouteMaps},
   // filter : { screen : filterScreen },
