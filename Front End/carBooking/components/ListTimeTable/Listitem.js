@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { AppRegistry, Image, StatusBar,Text } from "react-native";
-import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View} from "native-base";
+import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View,Fab} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SignIn from './SignIn';
 import Register from './Register';
