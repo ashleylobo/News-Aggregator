@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet,Linking,TouchableOpacity,Picker } from 'react-native';
-import {Container, Content, Button, Item, Label, Input, Form,Icon, Header ,Radio } from "native-base";
+import {Container, Content, Button, Item, Label, Input, Form,Icon, Header ,Radio,Tabs,Tab } from "native-base";
 import ListItem from './Listitem.js';
 import Dialog, { DialogTitle,DialogContent,DialogFooter,DialogButton,SlideAnimation} from 'react-native-popup-dialog';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -100,6 +100,32 @@ handleRickshawPress = () =>{
       <View style={{flex:1 , backgroundColor:'#BA68C8'}}>
 
         <View style={{flex:1 , backgroundColor:'#BA68C8'}} >
+        <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Personalised Feed">
+                        <SignIn navigation={this.props.navigation} data={data}/>
+                    </Tab>
+
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Trending">
+                        <Register navigation={this.props.navigation}/>
+                    </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="General Elections">
+                        <Register navigation={this.props.navigation}/>
+                    </Tab>
+                    
+                </Tabs>
           <ListItem/>
         </View> 
 
