@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { AppRegistry, Image, StatusBar,Text } from "react-native";
-import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View,Fab} from "native-base";
+import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View,ScrollableTabView,Page,Fab} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SignIn from './SignIn';
 import Register from './Register';
@@ -29,54 +29,63 @@ export default class ListItem extends Component {
               
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
-                <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
+                <Tabs  >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40,width:100}}
+                         textStyle={{color: 'white', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40,width:100}}
                          
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40,width:1000}}
+                         activeTabStyle={{backgroundColor: '', height: 40,width:1000}}
                          heading="For You">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
 
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="Trending">
                         <Register navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="General Elections">
                         <General navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="Sports">
                         <Sports navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="Finance">
                         <Finance navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
-                         heading="Entertainment">
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
+                         heading="Astro">
                         <Entertainment navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     
                 </Tabs>
 
+{/* <ScrollableTabView
+              tabBarActiveTextColor="#53ac49"
+              renderTabBar={() => <TabBar underlineColor="#53ac49" />}>
+            <Page tabLabel={{label: "Page #1"}} label="Page #1"/>
+            <Page tabLabel={{label: "Page #2 aka Long!", badge: 3}} label="Page #2 aka Long!"/>
+            <Page tabLabel={{label: "Page #3"}} label="Page #3"/>
+            <Page tabLabel={{label: "Page #4 aka Page"}} label="Page #4 aka Page"/>
+            <Page tabLabel={{label: "Page #5"}} label="Page #5"/>
+          </ScrollableTabView> */}
 
                   
                   {/* <View style={{flexDirection:'row' ,marginTop:7 , marginBottom: 7}}> */}
@@ -98,14 +107,18 @@ export default class ListItem extends Component {
                     style={{
                       header: {},
                       tab: {
-                          backgroundColor: '#0083d9'
+                          backgroundColor: '#0083d9',
+                          
                       },
-                     
-                      alignSelf:'center',
-                      borderBottomColor: 'black',
-                      borderBottomWidth: 0,
-                      paddingLeft:20,
-                      width:3700
+                      tabUnderline: {
+                        borderBottomColor: "00a4fe",
+                        borderBottomWidth: 5,
+                      },
+                      // alignSelf:'center',
+                      // borderBottomColor: 'black',
+                      // borderBottomWidth: 6,
+                      // paddingLeft:20,
+                      // width:3700
                     }}
                   />
             
