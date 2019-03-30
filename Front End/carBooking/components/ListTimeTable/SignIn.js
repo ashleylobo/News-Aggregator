@@ -5,17 +5,32 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 import InAppBrowser from 'react-native-inappbrowser-reborn'
 import axios from "axios";
+import Share, {ShareSheet} from 'react-native-share';
 const {width: WIDTH} = Dimensions.get('window');
 export default class SignIn extends Component {
+  
     constructor(props)  {
         super(props);
         this.state = {
-            errorMessage: false
+            errorMessage: false,
+            ShareType:'whatsapp'
         }
         this.follow=this.follow.bind(this)
         this.openLink=this.openLink.bind(this)  
     } 
-    
+    // sendURL=() { console.log(data.url); }
+    lastTap = null;
+    handleDoubleTap = () => {
+      const now = Date.now();
+      const DOUBLE_PRESS_DELAY = 300;
+      if (this.lastTap && (now - this.lastTap) < DOUBLE_PRESS_DELAY) {
+        alert("as");
+        // this.sendURL(data.url);
+        console.log(data.url);
+      } else {
+        this.lastTap = now;
+      }
+    }
 
     follow(data){
       console.log("saved to favourite ")
@@ -62,6 +77,7 @@ console.log("success")
 
 
     render() {
+
       console.warn(typeof(this.props.data))
       // console.log("HERE  ",this.props.data)
         return (
@@ -69,20 +85,41 @@ console.log("success")
             <List  
             dataArray ={this.props.data}
             renderRow ={data => {
+              let shareOptions = {
+                title: data.title,
+                message: data.description,
+                url: data.url,
+                subject: "Share Link", //  for email
+                social: "whatsapp"
+              };
               return (
- 
+            
             
             
               <Card>
+                <CardItem>
+                  <Left style={{flexDirection: 'row'}}>
+                    <Button rounded small style={{backgroundcolor:"#27e894"}}><Text>
+                    #Modiji</Text>
+                    </Button >
+                    <Button rounded small style={{backgroundcolor:"#27e894",marginLeft:5}}><Text>
+                    #EC </Text>
+                    </Button>
+                    
+                  </Left>
+                  <Right>
+                    <Text>
+                      Fake
+                    </Text>
+                  </Right>
+                </CardItem>
                 <CardItem>
                   <Left>
                     <Thumbnail source={require('./q.jpg')} />
                     <Body style={{flexDirection: 'row'}}>
                     <Body >
-                                    
                       <Text>{data.title}</Text>
-
-                      <Text note>{data.name} |Published at :{data.publishedAt}</Text>
+                      <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
                     <Icon name="star" style={{ color: '#dae031' }} onPress={()=>{
                       this.follow(data.source.name)
@@ -105,9 +142,13 @@ console.log("success")
                   <Text>{data.description}</Text>
                 </CardItem>
                 <CardItem>
-                  <Left>
+                  <Left style={{flexDirection: 'row'}}>
                     <Button transparent>
                       <Icon active name="thumbs-up" />
+                      
+                    </Button>
+                    <Button transparent>
+                      <Icon active name="thumbs-down" />
                       
                     </Button>
                   </Left>
@@ -118,11 +159,16 @@ console.log("success")
                     </Button> */}
                   </Body>
                   <Right style={{flexDirection: 'row'}}>
-                  <Button small >
-                    <Icon active name="logo-facebook" />
+                  <Button small style={{marginRight:3}} >
+                    <Icon active name="square" />
                     </Button>
                     
-                    <Button small>
+                    <Button small                   onPress={()=>{
+
+              setTimeout(() => {
+                Share.shareSingle(Object.assign(shareOptions));
+              },300);
+            }}>
                     <Icon active name="logo-whatsapp" />
                       
                     </Button>

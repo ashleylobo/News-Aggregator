@@ -8,9 +8,9 @@ import call from 'react-native-phone-call'
 
 import IPADDR from '../../assets/constant/IP';
 
-export default class DriverDummy extends Component {  //rename ur calss same as ur folder path
+export default class TV extends Component {  //rename ur calss same as ur folder path
   static navigationOptions = {
-    title: 'Favourites',
+    title: 'TV',
   };
   toggleLike = () => this.setState(state => ({ liked: !state.liked }));
   lastTap = null; 

@@ -119,9 +119,16 @@ handleRickshawPress = () =>{
 
           <View style={{flex:0.5}}>
             <Button info style={{textAlign:'center',justifyContent:'center', alignSelf: 'stretch', backgroundColor:"#0051a3"}}
-                                        onPress={ () =>      this.props.navigation.navigate('profile') }>
+                                        onPress={ () =>      this.props.navigation.navigate('driverdummy') }>
                 {/* <Text style={{color:'white'}}>Home</Text> */}
                 <Icon name="ios-star"/>
+            </Button>
+          </View>
+          <View style={{flex:0.5}}>
+            <Button info style={{textAlign:'center',justifyContent:'center', alignSelf: 'stretch', backgroundColor:"#0051a3"}}
+                    onPress={ () =>      this.props.navigation.navigate('tv') }>
+                {/* <Text style={{color:'white'}}>Home</Text> */}
+                <Icon name="tv"/>
             </Button>
           </View>
 

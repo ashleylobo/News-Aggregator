@@ -17,6 +17,7 @@ import { createStackNavigator, createAppContainer,  createDrawerNavigator, creat
 import Login from './components/Login';
 import LoginStudent from './components/LoginStudent';
 import LoginDriver from './components/LoginDriver';
+import TV from './components/TV';
 
 import SideBar from './components/SideBar';
 import ListTimeTable from './components/ListTimeTable';
@@ -50,13 +51,14 @@ const Mdn = createDrawerNavigator({
 
 
 const AppNavigator = createStackNavigator({
+  
   profile: Mdn,
   Login: { screen: LoginStudent },
   chatBot:{screen:ChatBot},
-  studentLogin :{screen:Login},
-  
+  Preferences :{screen:Login},
+  tv:{screen:TV},// fav:{screen:favourites},
   driverLogin:{screen:LoginDriver},
-  driverdummy:{screen:DriverDummy},             //rename  screen to ur calssName and put dhang ka label instead of driverdummy
+  driverdummy:{screen:DriverDummy},                                              //rename  screen to ur calssName and put dhang ka label instead of driverdummy
   driverdummynew:{screen:DriverDummyNew},       //rename  screen to ur calssName and put dhang ka label instead of driverdummynew
   // chatBot:{screen:ChatBot},
    profile: Mdn,

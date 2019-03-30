@@ -49,7 +49,7 @@ export default class ListItem extends Component {
 
     <Container style={{backgroundColor:'#e8f5fc'}}>
         <Content>      
-
+              
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
                 <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
@@ -58,7 +58,7 @@ export default class ListItem extends Component {
                          tabStyle={{backgroundColor: '#fff', height: 40}}
                          
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
-                         heading="FOR YOU">
+                         heading="For You">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
 
@@ -93,6 +93,8 @@ export default class ListItem extends Component {
                       <FontAwesome5 name={"star"} style={{fontSize:25}} />
                     </View> */}
                   {/* </View> */}
+
+
 
                   <View
                     style={{

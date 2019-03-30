@@ -45,8 +45,10 @@ export default class ChatBot extends Component {
     
       handleGoogleResponse(result) {
         
+        
         // let text = result.queryResult.fulfillmentMessages[0].text.text[1];
         let image=result.queryResult.fulfillmentMessages[0].text.text[0];
+        console.log(image);
         // console.log(text+' '+image)
         // console.warn(text)
         this.sendBotResponse(image);

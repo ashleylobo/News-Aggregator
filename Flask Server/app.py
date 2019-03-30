@@ -8,6 +8,10 @@ import requests, json
 import pandas as pd
 import requests
 
+from google.cloud import translate
+import os
+
+# Instantiates a client
 
 
 
@@ -21,6 +25,16 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/ashley/Downloads/NewsChat-3b3528a7e2bf.json"
+    translate_client = translate.Client()
+
+    # The text to translate
+    
+    # The target language
+    target = 'en'
+
+    # Translates some text into Russian
+
 
 
     req=request.get_json(silent=True,force=True)
@@ -31,14 +45,29 @@ def predict():
     typee=req.get('queryResult').get('parameters').get('type')
     country=req.get('queryResult').get('parameters').get('country')
     sources=req.get('queryResult').get('parameters').get('source')
-    api="https://newsapi.org/v2/everything?language=en&sources="+sources+"&q="+query+"&sortBy=relevancy&apiKey=89cfff18287d4adb919382ad1f8cfecd"
-    res=requests.get(api)
+    lang=req.get('queryResult').get('queryText')
+    
+ 
+    translation = translate_client.translate(
+    lang,
+    target_language=target)
+    print(u'Translation: {}'.format(translation['detectedSourceLanguage']))
 
-    text=res.json()['articles'][0]['description']
-    message=[{'text':{'text':[res.json()['articles'][0]['urlToImage'],res.json()['articles'][0]['description']]}}]
-    print(api)
-    print(message)
-    return jsonify( {'fulfillmentMessages':message} )
+    if(translation['detectedSourceLanguage']=='en'):
+        print(type(sources)," ",type(query))
+        api="https://newsapi.org/v2/everything?language=en&sources="+sources+"&q="+query+"&sortBy=relevancy&apiKey=89cfff18287d4adb919382ad1f8cfecd"
+        res=requests.get(api)
+        text=res.json()['articles'][0]['description']
+        print(text)
+        return jsonify( {'fulfillmentText':text} )
+    else:
+        print("hi")
+        return jsonify( {'fulfillmentText':lang} )
+
+    # message=[{'text':{'text':[res.json()['articles'][0]['urlToImage'],res.json()['articles'][0]['description']]}}]
+    # print(api)
+
+
  
 
 
