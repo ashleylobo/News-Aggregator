@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text ,StyleSheet,Image} from 'react-native';
-import { Container, Content,Card,CardItem,Left,Right,Thumbnail,Body,Header, Button, Icon, Fab } from 'native-base';
+import { Container, Content,Card,CardItem,Left,Right,Alert,Thumbnail,Body,Header, Button, Icon, Fab } from 'native-base';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import SocketIOClient from 'socket.io-client';
 import axios from 'axios';
@@ -12,7 +12,17 @@ export default class DriverDummy extends Component {  //rename ur calss same as 
   static navigationOptions = {
     title: 'Favourites',
   };
-
+  toggleLike = () => this.setState(state => ({ liked: !state.liked }));
+  lastTap = null; 
+  handleDoubleTap = () => {
+    const now = Date.now();
+    const DOUBLE_PRESS_DELAY = 300;
+    if (this.lastTap && (now - this.lastTap) < DOUBLE_PRESS_DELAY) {
+      this.toggleLike();
+    } else {
+      this.lastTap = now;
+    }
+}
   constructor(props) {
     super(props);
     this.socket = SocketIOClient(`http://${IPADDR}:3000`);
@@ -39,59 +49,12 @@ export default class DriverDummy extends Component {  //rename ur calss same as 
     
   }
 
-  componentDidMount(){
 
-    this.socket.on('request' , (msg)=>{
-      console.log("geting requests");
-      this.setState( {rider : msg.id , 
-        riderId : msg.riderId, riderContact : msg.contactNo, 
-          riderRating : msg.rating , requested : true, seats : msg.noOfPass} )
-    })
-
-  }
-
-
-
-
-  showAlert = () => {
-    this.setState({
-      showAlert: true
-    });
-  };
- 
-  hideAlert = () => {
-    this.setState({
-      showAlert: false
-    });
-  };
-
-  goOnline = () =>{
-
-    if ( this.state.onlineStatus ){
-      this.socket.emit('goOffline');
-    }else{
-      this.socket.emit('ready', { id : this.state.id , driverId : this.socket.id })
-    }
-
-    this.setState({ onlineStatus: !this.state.onlineStatus })
-    
-  }
-
-  acceptRequest = () =>{
-
-    let state = this.state;
-    let driverId = state.id, id = state.riderId;
-    this.socket.emit('sendAcception' , { driverId, id , contactNo : this.state.contactNo } )
-
-    this.setState({
-      showAlert: false
-    });
-
-  }
 
   render() {
     const {showAlert} = this.state;
     return (
+//      
       <Container>
         <Header />
         <Content>
@@ -110,7 +73,7 @@ export default class DriverDummy extends Component {  //rename ur calss same as 
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent>
+                <Button transparent onPress={this.handleDoubleTap}>
                   <Icon active name="thumbs-up" />
                   <Text>12 Likes</Text>
                 </Button>
