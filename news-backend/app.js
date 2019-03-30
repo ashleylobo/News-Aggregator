@@ -8,6 +8,8 @@ var parser        = require('body-parser')
 var passport      = require('passport')
 var localstrategy = require('passport-local').Strategy
 var User          = require('./model/user')
+var flaggedNews   = require('./model/flaggedNews')
+
 require('./model/dbconnection')
 //Assigning public folder for all static file references
 
@@ -39,7 +41,7 @@ passport.use(new localstrategy(function(username, password, done) {
 ))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
-app.use(isLoggedIn);
+// app.use(isLoggedIn);
 
 //**************************** Routes section ********************************//
 var homeRoute=require('./routes/homeRoute')
@@ -48,8 +50,14 @@ var auth=require('./routes/authentication')
 app.use('/authentication/',auth)
 var users=require('./routes/users')
 app.use('/users/',users)
-var api=require('./routes/api')
-app.use("/api",api)
+var api=require('./routes/newsapi')
+app.use("/api/",api)
+var keywords=require('./routes/keywords')
+app.use("/keywords",keywords)
+
+var rss=require('./routes/rss')
+app.use("/rss",rss)
+
 //**************************** Controllers section ********************************//
 
 
@@ -79,6 +87,18 @@ function isLoggedIn(req, res, next){
  
 // })();
 
+// User.create({
+//   name:"Joy",
+//   email:"joy@gmail.com",
+//   age:18,
+//   password:"secret",
+//   preferences:["History,Science,India"]
+
+
+// }).then((s)=>{
+//   console.log("created")
+//   s.save()
+// })
 
 app.listen(port,()=>{
     console.log("Site live on ",port +" Address is ",addr)

@@ -2,13 +2,13 @@ import React,{Component} from "react";
 import { AppRegistry, Image, StatusBar,Text } from "react-native";
 import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View,ScrollableTabView,Page,Fab} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import axios from 'axios';
 import SignIn from './SignIn';
 import Register from './Register';
 import General from './General';
 import Sports from './sports';
 import Entertainment from './entertainment';
 import Finance from './finance';
-
 
 const routes = [
                 {author :"Jack ",title:"PM Modi's address to nation did not violate model code:EC",description:"Prime Minister Narendra Modi's address to the nation on the successful test-firing of an anti-satellite missile did not violate provisions of the model code of conduct, the Election Commission said on Friday night.",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
@@ -18,8 +18,34 @@ const routes = [
                 {author :"William ",title:"Brexit: What happens next after latest government defeat?",description:"The UK was supposed to leave the EU on Friday but, following the government's latest setback, it is no clearer when Brexit will happen.The UK faces a new deadline of 12 April to come up with a way forward.",name:"Chatroom",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://ichef.bbci.co.uk/news/660/cpsprodpb/FF35/production/_106233356_mediaitem106231222.jpg",publishedAt:"2019-03-30T07:00:56Z", }
                 ];
 
+
+
 export default class ListItem extends Component {
-  render() {
+  constructor(props)  {
+    super(props);
+    this.state = {
+        errorMessaroutesnews:[]
+    } 
+
+  } 
+
+  // // componentDidMount(){
+  // //   // axios.get('http://192.168.43.57:2454/api/getnews')
+  // //   // .then((res)=>{
+  // //   //   // console.log("called ",res.data)
+  // //   //   this.setState({news:res.data})
+  // //   //    console.log("Cool ",this.state.news)
+
+  // //   }
+    
+  // //   )
+  // //   .catch((d)=>{
+  // //     console.log("error ",d) 
+  // //   })
+    
+    
+  //     }
+   render() {
     
     return (    
       
@@ -38,7 +64,7 @@ export default class ListItem extends Component {
                          heading="For You">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
-
+                    
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
                          tabStyle={{backgroundColor: '', height: 40}}
