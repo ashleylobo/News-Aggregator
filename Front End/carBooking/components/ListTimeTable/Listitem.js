@@ -29,26 +29,27 @@ export default class ListItem extends Component {
 
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
-                <Tabs tabBarUnderlineStyle={{borderBottomWidth:2,backgroundColor: 'red', opacity:0}} >
+                <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
-                         heading="For You">
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Personalised Feed">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
 
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="Trending">
                         <Register navigation={this.props.navigation}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="General Elections">
                         <Register navigation={this.props.navigation}/>
                     </Tab>

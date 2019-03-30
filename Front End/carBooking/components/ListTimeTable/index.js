@@ -121,11 +121,8 @@ handleRickshawPress = () =>{
             <Button info style={{textAlign:'center',justifyContent:'center', alignSelf: 'stretch', backgroundColor:"#0051a3"}}
                     onPress={ () => this.setState({rickshaw:true}) }>
                 {/* <Text style={{color:'white'}}>Home</Text> */}
-                <Icon name="rowing" />
+                <Icon name="ios-star"/>
             </Button>
-          </View>
-          <View>
-            <Text>Here i am</Text>
           </View>
 
         </View>

@@ -31,7 +31,7 @@ export default class SignIn extends Component {
                     <Thumbnail source={require('./b.png')} />
                     <Body>
                       <Text>{data.title}</Text>
-                      <Text note>CNN</Text>
+                      <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
                   </Left>
                 </CardItem>
@@ -49,17 +49,24 @@ export default class SignIn extends Component {
                   <Left>
                     <Button transparent>
                       <Icon active name="thumbs-up" />
-                      <Text>12 Likes</Text>
+                      
                     </Button>
                   </Left>
                   <Body>
-                    <Button transparent>
+                    {/* <Button transparent>
                       <Icon active name="chatbubbles" />
-                      <Text>4 Comments</Text>
-                    </Button>
+                     
+                    </Button> */}
                   </Body>
-                  <Right>
-                    <Text>Published at :{data.publishedAt}</Text>
+                  <Right style={{flexDirection: 'row'}}>
+                  <Button small >
+                    <Icon active name="logo-facebook" />
+                    </Button>
+                    
+                    <Button small>
+                    <Icon active name="logo-whatsapp" />
+                      
+                    </Button>
                   </Right>
                 </CardItem>
               </Card>
