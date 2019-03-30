@@ -22,7 +22,7 @@ import SideBar from './components/SideBar';
 import ListTimeTable from './components/ListTimeTable';
 import DriverDummy from './components/DriverDummy';   //rename ur calss and folder path
 import DriverDummyNew from './components/DriverDummyNew'; //rename ur calss and folder path
-// import PastRides from './components/PastRides';
+import PastRides from './components/PastRides';
 import ChatBot from './components/ChatBot'
 
 
