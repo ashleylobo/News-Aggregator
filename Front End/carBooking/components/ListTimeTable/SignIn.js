@@ -51,13 +51,7 @@ export default class SignIn extends Component {
 
 
     render() {
-      let shareOptions = {
-        title: "React Native",
-        message: "Hola mundo",
-        url: "http://facebook.github.io/react-native/",
-        subject: "Share Link", //  for email
-        social: this.state.ShareType
-      };
+
       console.warn(typeof(this.props.data))
       console.log("HERE  ",this.props.data)
         return (
@@ -65,6 +59,13 @@ export default class SignIn extends Component {
             <List  
             dataArray ={this.props.data}
             renderRow ={data => {
+              let shareOptions = {
+                title: data.title,
+                message: data.description,
+                url: data.url,
+                subject: "Share Link", //  for email
+                social: "whatsapp"
+              };
               return (
             
             
