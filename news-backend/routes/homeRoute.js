@@ -1,6 +1,6 @@
 var exp=require('express')
 var router=exp.Router()
-
+var User=require('../model/user')
 router
 .route('/')
 .get((req,res)=>{
@@ -9,6 +9,19 @@ router
     res.render('homePage',{req:req})
 })
 
+.route('/registerUser')
+.post((req,res)=>{
+    data=req.body.data
+    print("data received ",data)
+    User.create({data})
+    .then((s)=>{
+        console.log("registered successfully ",s)
+
+    })
+    .catch((e)=>{
+        print("error ocurred")
+    })
+})
 
 router
 .route("/datasent")

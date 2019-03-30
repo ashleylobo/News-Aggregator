@@ -4,8 +4,10 @@ var passportlocalmongoose = require("passport-local-mongoose")
 var userSchema=new Schema({
     name:String,
     email:String,
-    username:String,
+    age:Number,
     password:String,
+    preferences:[{type:String}],
+    bias_level:[{type:Number,enum:[0,1,2]}]//left,center,right
 })
 
 userSchema.plugin(passportlocalmongoose)
