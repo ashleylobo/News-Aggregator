@@ -79,6 +79,18 @@ function isLoggedIn(req, res, next){
  
 // })();
 
+// User.create({
+//   name:"Joy",
+//   email:"joy@gmail.com",
+//   age:18,
+//   password:"secret",
+//   preferences:["History,Science,India"]
+
+
+// }).then((s)=>{
+//   console.log("created")
+//   s.save()
+// })
 
 app.listen(port,()=>{
     console.log("Site live on ",port +" Address is ",addr)

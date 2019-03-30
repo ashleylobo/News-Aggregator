@@ -21,29 +21,28 @@ export default class ListItem extends Component {
   constructor(props)  {
     super(props);
     this.state = {
-        errorMessage: false,
-        news:[]
-    }
+        errorMessaroutesnews:[]
+    } 
 
   } 
 
-  componentDidMount(){
-    axios.get('http://192.168.43.57:2454/api/getnews')
-    .then((res)=>{
-      console.log("called ",res.data)
-      this.setState({news:res.data})
-      console.log("Cool ",this.state.news)
+  // // componentDidMount(){
+  // //   // axios.get('http://192.168.43.57:2454/api/getnews')
+  // //   // .then((res)=>{
+  // //   //   // console.log("called ",res.data)
+  // //   //   this.setState({news:res.data})
+  // //   //    console.log("Cool ",this.state.news)
 
-    }
+  // //   }
     
-    )
-    .catch((d)=>{
-      console.log("error ",d) 
-    })
+  // //   )
+  // //   .catch((d)=>{
+  // //     console.log("error ",d) 
+  // //   })
     
     
-      }
-  render() {
+  //     }
+   render() {
     
     return (    
       
@@ -68,7 +67,7 @@ export default class ListItem extends Component {
                          tabStyle={{backgroundColor: '#fff', height: 40}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="Trending">
-                        <Register navigation={this.props.navigation} data={this.state.news}/>
+                        <Register navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: 'black', fontSize: 12}}

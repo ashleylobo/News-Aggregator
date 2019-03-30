@@ -4,7 +4,7 @@ import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,C
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 import InAppBrowser from 'react-native-inappbrowser-reborn'
-
+import axios from "axios";
 const {width: WIDTH} = Dimensions.get('window');
 export default class SignIn extends Component {
     constructor(props)  {
@@ -12,9 +12,21 @@ export default class SignIn extends Component {
         this.state = {
             errorMessage: false
         }
-        this.openLink=this.openLink.bind(this)
+        this.follow=this.follow.bind(this)
+        this.openLink=this.openLink.bind(this)  
     } 
+    
 
+    follow(data){
+      console.log("saved to favourite ")
+      axios.post("http://192.168.43.57:2454/api/addfollow",{data})
+      .then((r)=>{
+console.log("success")
+      })
+.catch((e)=>{
+  console.log("error ",e)
+})
+    }
     async openLink(url) {
       try {
         if (await InAppBrowser.isAvailable()) {
@@ -51,7 +63,7 @@ export default class SignIn extends Component {
 
     render() {
       console.warn(typeof(this.props.data))
-      console.log("HERE  ",this.props.data)
+      // console.log("HERE  ",this.props.data)
         return (
             <ScrollView>
             <List  
@@ -67,10 +79,14 @@ export default class SignIn extends Component {
                     <Thumbnail source={require('./q.jpg')} />
                     <Body style={{flexDirection: 'row'}}>
                     <Body >
+                                    
                       <Text>{data.title}</Text>
-                      <Text note>Published at :{data.publishedAt}</Text>
+
+                      <Text note>{data.name} |Published at :{data.publishedAt}</Text>
                     </Body>
-                    <Icon name="star" style={{ color: '#dae031' }} />
+                    <Icon name="star" style={{ color: '#dae031' }} onPress={()=>{
+                      this.follow(data.source.name)
+                    }} />
                     </Body>
                   </Left>
                 </CardItem>
