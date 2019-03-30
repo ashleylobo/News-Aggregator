@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking} from 'react-native';
+import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking,TouchableOpacity} from 'react-native';
 import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,CardItem, Label, Input, Form,Text, Icon} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
@@ -14,6 +14,11 @@ export default class SignIn extends Component {
     } 
 
     render() {
+      console.warn(typeof(this.props.data))
+      console.log("HERE  ",typeof(this.props.data.publishedAt))
+      d=new Date(this.props.data.publishedAt)
+      date=d.toLocaleString()
+      console.log("DATE is ",d.toLocaleString())
         return (
             <Container>
             
@@ -23,14 +28,21 @@ export default class SignIn extends Component {
                   <Left>
                     <Thumbnail source={require('./b.png')} />
                     <Body>
-                      <Text>News</Text>
+                      <Text>{this.props.data.title}</Text>
                       <Text note>CNN</Text>
                     </Body>
                   </Left>
                 </CardItem>
-                <CardItem cardBody>
-                  <Image source={require('./b.png')} style={{height: 200, width: null, flex: 1}}/>
+                <TouchableOpacity onPress={()=>{
+                 Linking.openURL("https://www.google.com")
+               }} >
+                <CardItem cardBody  >
+              
+            
+                  <Image source={{uri:this.props.data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
                 </CardItem>
+                </TouchableOpacity>
+             
                 <CardItem>
                   <Left>
                     <Button transparent>
@@ -45,7 +57,7 @@ export default class SignIn extends Component {
                     </Button>
                   </Body>
                   <Right>
-                    <Text>11h ago</Text>
+                    <Text>Published at : {date}</Text>
                   </Right>
                 </CardItem>
               </Card>

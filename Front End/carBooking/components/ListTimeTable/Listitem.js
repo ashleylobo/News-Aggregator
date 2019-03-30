@@ -7,16 +7,16 @@ import Register from './Register';
 
 
 const routes = [
-                {title:"prof",name:"Profile", icon:"user"},
-                {title:"rout" , name:"Help Section" , icon:"question-circle"},
-                {title:"filter",name:"Filter", icon:"filter"},
-                {title:"feedback",name:"Feedback", icon:"comments"},
-                {title:"chat",name:"Chatroom", icon:"comment-dots"},
-                {title:"prof",name:"Profile", icon:"user"},
-                {title:"rout" , name:"Help Section" , icon:"question-circle"},
-                {title:"filter",name:"Filter", icon:"filter"},
-                {title:"feedback",name:"Feedback", icon:"comments"},
-                {title:"chat",name:"Chatroom", icon:"comment-dots"}];
+                {author :"Jack ",title:"PM Modi's address to nation did not violate model code:EC",description:"Its breaking news!!!",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
+                {author :"William ",title:"rout" ,description:"Its breaking news!!!" ,name:"Help Section" ,url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
+                {author :"William ",title:"filter",description:"Its breaking news!!!",name:"Filter",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"feedback",description:"Its breaking news!!!",name:"Feedback",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"chat",description:"Its breaking news!!!",name:"Chatroom",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"prof",description:"Its breaking news!!!",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"rout" ,description:"Its breaking news!!!" ,name:"Help Section" ,url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"filter",description:"Its breaking news!!!",name:"Filter",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"feedback",description:"Its breaking news!!!",name:"Feedback",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
+                {author :"William ",title:"chat",description:"Its breaking news!!!",name:"Chatroom",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", }];
 
 export default class ListItem extends Component {
   render() {
@@ -40,39 +40,27 @@ export default class ListItem extends Component {
                          tabStyle={{backgroundColor: '#0083d9', height: 60}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
                          heading="Personalised Feed">
-                        <SignIn navigation={this.props.navigation}/>
+                        <SignIn navigation={this.props.navigation} data={data}/>
                     </Tab>
 
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
                          tabStyle={{backgroundColor: '#0083d9', height: 60}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
-                         heading="Politics">
+                         heading="Trending">
                         <Register navigation={this.props.navigation}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
                          tabStyle={{backgroundColor: '#0083d9', height: 60}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
-                         heading="Politics">
+                         heading="General Elections">
                         <Register navigation={this.props.navigation}/>
                     </Tab>
                     
                 </Tabs>
                   
-                  <View style={{flexDirection:'row' ,marginTop:7 , marginBottom: 7}}>
-                    <View style={{flex:0.85}}>
-                      <Text blurRadius={1} style={{color:'black' , fontSize:23, paddingLeft:20 ,paddingRight:5}}>07:40 PM  COLLEGE</Text>
-                      <Text blurRadius={1} style={{color:'grey' , fontSize:12, paddingLeft:20 ,paddingRight:5}}>Superfast Spl. Sunday General</Text>
-                      <Text blurRadius={1} style={{color:'grey' , fontSize:12, paddingLeft:20 ,paddingRight:5}}>STATION - COLLEGE</Text>
-                    </View>
-                    
-                    <View style={{flex:0.15 ,borderRightWidth:10 , borderRightColor: "red" , justifyContent:'center' , alignItems: 'center', }}>
-                      <Text blurRadius={1} style={{color:'black' , fontSize:12,paddingRight:5}}>35 min</Text>
-                      <FontAwesome5 name={"star"} style={{fontSize:25}} />
-                    </View>
-                  </View>
-
+              
                   <View
                     style={{
                       header: {},
