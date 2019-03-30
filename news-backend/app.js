@@ -8,6 +8,8 @@ var parser        = require('body-parser')
 var passport      = require('passport')
 var localstrategy = require('passport-local').Strategy
 var User          = require('./model/user')
+var flaggedNews   = require('./model/flaggedNews')
+
 require('./model/dbconnection')
 //Assigning public folder for all static file references
 
@@ -50,6 +52,12 @@ var users=require('./routes/users')
 app.use('/users/',users)
 var api=require('./routes/newsapi')
 app.use("/api/",api)
+var keywords=require('./routes/keywords')
+app.use("/keywords",keywords)
+
+var rss=require('./routes/rss')
+app.use("/rss",rss)
+
 //**************************** Controllers section ********************************//
 
 
