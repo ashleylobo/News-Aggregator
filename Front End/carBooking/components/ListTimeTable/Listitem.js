@@ -5,6 +5,9 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SignIn from './SignIn';
 import Register from './Register';
 import General from './General';
+import Sports from './sports';
+import Entertainment from './entertainment';
+import Finance from './finance';
 
 
 const routes = [
@@ -29,9 +32,9 @@ export default class ListItem extends Component {
                 <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         tabStyle={{backgroundColor: '#fff', height: 40,width:100}}
                          
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40,width:1000}}
                          heading="For You">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
@@ -49,6 +52,27 @@ export default class ListItem extends Component {
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="General Elections">
                         <General navigation={this.props.navigation} data={routes}/>
+                    </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Sports">
+                        <Sports navigation={this.props.navigation} data={routes}/>
+                    </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Finance">
+                        <Finance navigation={this.props.navigation} data={routes}/>
+                    </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Entertainment">
+                        <Entertainment navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     
                 </Tabs>
@@ -76,11 +100,12 @@ export default class ListItem extends Component {
                       tab: {
                           backgroundColor: '#0083d9'
                       },
+                     
                       alignSelf:'center',
                       borderBottomColor: 'black',
                       borderBottomWidth: 0,
                       paddingLeft:20,
-                      width:370
+                      width:3700
                     }}
                   />
             
