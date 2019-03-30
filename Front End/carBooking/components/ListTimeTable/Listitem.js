@@ -36,8 +36,8 @@ export default class ListItem extends Component {
                 <Header style={{height: 0}} hasTabs/>
                 <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
                          
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="Personalised Feed">
@@ -45,15 +45,15 @@ export default class ListItem extends Component {
                     </Tab>
 
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="Trending">
                         <Register navigation={this.props.navigation}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="General Elections">
                         <Register navigation={this.props.navigation}/>
