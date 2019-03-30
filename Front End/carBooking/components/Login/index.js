@@ -6,6 +6,8 @@ import Register from './Register';
 
 import {NetInfo} from 'react-native';
 
+var SampleArray = ["ONE", "TWO"] ;
+
 export default class Login extends Component {
     static navigationOptions = {
         header: null,
@@ -40,7 +42,10 @@ export default class Login extends Component {
         return ( 
 
             <View style={styles.container}>
-                
+                <View style={styles.header}><Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#000c21"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white', fontSize:28 }}>Preferences</Text>
+                        </Button></View>
                 {/* <Image style={styles.avatar} source={require('../../assets/images/tumtum.jpg')}/> */}
                 <View style={styles.body}>
                     <View>
@@ -84,8 +89,9 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
     header:{
-      backgroundColor: "#00BFFF",
-      height:110,
+      backgroundColor: "#000c21",
+      height:70,
+      
     },
     avatar: {
       width: 170,
@@ -104,7 +110,7 @@ const styles = StyleSheet.create({
       fontWeight:'600',
     },
     body:{
-      marginTop:140,
+      marginTop:40,
     },
     bodyContent: {
       flex: 1,

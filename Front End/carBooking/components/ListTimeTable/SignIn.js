@@ -65,16 +65,19 @@ export default class SignIn extends Component {
                 <CardItem>
                   <Left>
                     <Thumbnail source={require('./q.jpg')} />
-                    <Body>
+                    <Body style={{flexDirection: 'row'}}>
+                    <Body >
                       <Text>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
+                    </Body>
+                    <Icon name="star" style={{ color: '#dae031' }} />
                     </Body>
                   </Left>
                 </CardItem>
                 
                 <TouchableOpacity onPress={()=>{
                 //  Linking.openURL("https://www.google.com")
-                  this.openLink()
+                  this.openLink(data.url)
                }} >
                 <CardItem   >
                
