@@ -5,6 +5,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 
 const {width: WIDTH} = Dimensions.get('window');
+
 export default class SignIn extends Component {
     constructor(props)  {
         super(props);
@@ -12,6 +13,7 @@ export default class SignIn extends Component {
             errorMessage: false
         }
     } 
+    
 
     render() {
       console.warn(typeof(this.props.data))
@@ -41,8 +43,6 @@ export default class SignIn extends Component {
             
                   <Image source={{uri:this.props.data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
                 </CardItem>
-                </TouchableOpacity>
-             
                 <CardItem>
                   <Left>
                     <Button transparent>
@@ -50,12 +50,19 @@ export default class SignIn extends Component {
                       <Text>12 Likes</Text>
                     </Button>
                   </Left>
-                  <Body>
+                  <Body style={{flexDirection: 'row'}}>
+                    
                     <Button transparent>
-                      <Icon active name="chatbubbles" />
-                      <Text>4 Comments</Text>
+                    <Icon active name="logo-facebook" />
                     </Button>
+                    
+                    <Button transparent>
+                    <Icon active name="logo-whatsapp" />
+                      
+                    </Button>
+                    
                   </Body>
+                  
                   <Right>
                     <Text>Published at : {date}</Text>
                   </Right>
@@ -63,34 +70,12 @@ export default class SignIn extends Component {
               </Card>
             </Content>
           </Container>    
-    //   <Container>
-     
-    //   <Content >
-    //     <Card>
-    //       <CardItem header bordered>
-    //         <Text>Tittle</Text>
-    //       </CardItem>
-    //       <CardItem bordered>
-    //         <Body>
-    //           <Text>
-    //             NativeBase is a free and open source framework that enable
-    //             developers to build
-    //             high-quality mobile apps using React Native iOS and Android
-    //             apps
-    //             with a fusion of ES6.
-    //           </Text>
-    //         </Body>
-    //       </CardItem>
-    //       <CardItem footer bordered>
-    //         <Text>GeekyAnts</Text><Icon name="ios-refresh" />
-    //       </CardItem>
-        
-    //     </Card>
-    //   </Content>
-    // </Container>
+   
         );
     }
 }
+
+
 
 const styles = StyleSheet.create({
     backgroundContainer: {
