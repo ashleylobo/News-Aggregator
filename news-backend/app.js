@@ -50,7 +50,8 @@ var auth=require('./routes/authentication')
 app.use('/authentication/',auth)
 var users=require('./routes/users')
 app.use('/users/',users)
-
+var api=require('./routes/api')
+app.use("/api",api)
 //**************************** Controllers section ********************************//
 
 
