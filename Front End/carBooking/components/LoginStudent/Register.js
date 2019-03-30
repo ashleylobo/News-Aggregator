@@ -68,7 +68,7 @@ export default class SignIn extends Component {
                         </Form>
 
                         <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#0083d9"}}>
-                            <Text onPress={ () =>      this.props.navigation.navigate('Login')}>Register</Text>
+                            <Text onPress={ () =>      this.props.navigation.navigate('studentLogin')}>Register</Text>
                         </Button>
 
 
