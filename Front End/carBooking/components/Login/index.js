@@ -93,7 +93,7 @@ export default class Login extends Component {
                 </View>
                 <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:660 , marginTop: 20, backgroundColor:"#000160"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
-                            <Text style={{color:'white', fontSize:28 }}>Hashtags</Text>
+                            <Text style={{color:'white', fontSize:28 }}>Languages</Text>
                         </Button>
                         <View style={styles.body}>
                     
@@ -105,22 +105,22 @@ export default class Login extends Component {
                         <View style={{flexDirection:"row"}}>
                         <Button  rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
-                            <Text style={{color:'white'}}>Sports</Text>
+                            <Text style={{color:'white'}}>English</Text>
                         </Button>
                         <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
-                            <Text style={{color:'white'}}>Entertainment</Text>
+                            <Text style={{color:'white'}}>हिंदी</Text>
                         </Button>
                         </View>
                         
                         <View style={{flexDirection:"row"}}>
                         <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
-                            <Text style={{color:'white'}}>Science</Text>
+                            <Text style={{color:'white'}}>मराठी</Text>
                         </Button>
                         <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
-                            <Text style={{color:'white'}}>Automobile</Text>
+                            <Text style={{color:'white'}}>ગુજરતી</Text>
                         </Button>
                         </View>
                                         
