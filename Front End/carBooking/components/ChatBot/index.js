@@ -27,7 +27,7 @@ export default class ChatBot extends Component {
                 text: `Hi! I am Search Bot. Please send your query`,
                 createdAt: new Date(),
                 user: BOT_USER,
-                image:''
+                // image:''
               }
             ]
           };
@@ -45,11 +45,11 @@ export default class ChatBot extends Component {
     
       handleGoogleResponse(result) {
         
-        let text = result.queryResult.fulfillmentMessages[0].text.text[1];
+        // let text = result.queryResult.fulfillmentMessages[0].text.text[1];
         let image=result.queryResult.fulfillmentMessages[0].text.text[0];
-        console.log(text+' '+image)
+        // console.log(text+' '+image)
         // console.warn(text)
-        this.sendBotResponse(text,image);
+        this.sendBotResponse(image);
       }
     
       onSend(messages = []) {
@@ -65,13 +65,13 @@ export default class ChatBot extends Component {
         );
       }
     
-      sendBotResponse(text,image) {
+      sendBotResponse(text) {
         let msg = {
           _id: this.state.messages.length + 1,
           text,
           createdAt: new Date(),
           user: BOT_USER,
-          image
+          // image
         };
     
         this.setState(previousState => ({
