@@ -28,7 +28,9 @@ import ChatBot from './components/ChatBot';
 //-----------------------Drawer navigation Bar ---------------------------------------
 
 const Mdn = createDrawerNavigator({
+  
   listTimeTable:{screen:ListTimeTable},
+  
 },
 {
   contentComponent: SideBar,
@@ -64,20 +66,19 @@ const AppNavigator = createStackNavigator({
     return {
       headerLeft:(
         <FontAwesome5 name={"bars"} brand style={{paddingLeft:15 , fontSize: 30, color:'white'}} onPress={() => navigation.toggleDrawer()}/>
-      )
-      ,
-      title:("Student Page"),
+      ),
+      title:("News"),
       headerTitleStyle: {
         fontWeight: "bold",
         fontSize:30,
-        paddingLeft:60,
+        paddingLeft:10,
         color: "white",
         
         alignSelf: 'center',
       },
       headerStyle: {
         borderBottomColor:"white",
-        borderBottomWidth:1,
+        borderBottomWidth:0,
         backgroundColor: "#0051a3"
       }
     };

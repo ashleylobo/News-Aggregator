@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking} from 'react-native';
-import {Container, Content, Button, Item, Label, Input, Form,Text, Icon} from "native-base";
+import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking,TouchableOpacity} from 'react-native';
+import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,CardItem, Label, Input, Form,Text, Icon} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 
@@ -14,14 +14,91 @@ export default class SignIn extends Component {
     } 
 
     render() {
+      console.warn(typeof(this.props.data))
+      console.log("HERE  ",typeof(this.props.data.publishedAt))
+      d=new Date(this.props.data.publishedAt)
+      date=d.toLocaleString()
+      console.log("DATE is ",d.toLocaleString())
         return (
             <Container>
-                <Content>
-
+            
+            <Content>
+              <Card>
+                <CardItem>
+                  <Left>
+                    <Thumbnail source={require('./b.png')} />
+                    <Body>
+                      <Text>{this.props.data.title}</Text>
+                      <Text note>Published at : {date}</Text>
+                    </Body>
+                  </Left>
+                </CardItem>
+                
+                <TouchableOpacity onPress={()=>{
+                 Linking.openURL("https://www.google.com")
+               }} >
+                <CardItem   >
+               
+            
+                  <Image source={{uri:this.props.data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
+                </CardItem>
+                </TouchableOpacity>
+                <CardItem   >
+                  <Text>IDHAR DAAL</Text>
+                </CardItem>
+                <CardItem>
+                  <Left>
+                    <Button transparent>
+                      <Icon active name="thumbs-up" />
+                      <Text>12 Likes</Text>
+                    </Button>
+                  </Left>
+                  
+                  <Body style={{flexDirection: 'row'}}>
                     
-
-                </Content>
-            </Container>
+                    <Button transparent>
+                    <Icon active name="logo-facebook" />
+                    </Button>
+                    
+                    <Button transparent>
+                    <Icon active name="logo-whatsapp" />
+                      
+                    </Button>
+                    
+                  </Body>
+                  
+                  {/* <Right>
+                    <Text>Published at : {date}</Text>
+                  </Right> */}
+                </CardItem>
+              </Card>
+            </Content>
+          </Container>    
+    //   <Container>
+     
+    //   <Content >
+    //     <Card>
+    //       <CardItem header bordered>
+    //         <Text>Tittle</Text>
+    //       </CardItem>
+    //       <CardItem bordered>
+    //         <Body>
+    //           <Text>
+    //             NativeBase is a free and open source framework that enable
+    //             developers to build
+    //             high-quality mobile apps using React Native iOS and Android
+    //             apps
+    //             with a fusion of ES6.
+    //           </Text>
+    //         </Body>
+    //       </CardItem>
+    //       <CardItem footer bordered>
+    //         <Text>GeekyAnts</Text><Icon name="ios-refresh" />
+    //       </CardItem>
+        
+    //     </Card>
+    //   </Content>
+    // </Container>
         );
     }
 }

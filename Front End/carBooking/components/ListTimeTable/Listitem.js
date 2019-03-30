@@ -1,22 +1,22 @@
 import React,{Component} from "react";
 import { AppRegistry, Image, StatusBar,Text } from "react-native";
-import { Button,Container,Tab, Tabs,Header,List,Content,Icon,Thumbnail, View} from "native-base";
+import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SignIn from './SignIn';
 import Register from './Register';
 
 
 const routes = [
-                {title:"prof",name:"Profile", icon:"user"},
-                {title:"rout" , name:"Help Section" , icon:"question-circle"},
-                {title:"filter",name:"Filter", icon:"filter"},
-                {title:"feedback",name:"Feedback", icon:"comments"},
-                {title:"chat",name:"Chatroom", icon:"comment-dots"},
-                {title:"prof",name:"Profile", icon:"user"},
-                {title:"rout" , name:"Help Section" , icon:"question-circle"},
-                {title:"filter",name:"Filter", icon:"filter"},
-                {title:"feedback",name:"Feedback", icon:"comments"},
-                {title:"chat",name:"Chatroom", icon:"comment-dots"}];
+                {author :"Jack ",title:"PM Modi's address to nation did not violate model code:EC",description:"Its breaking news!!!",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
+                {author :"William ",title:"rout" ,description:"Its breaking news!!!" ,name:"Help Section" ,url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
+                {author :"William ",title:"filter",description:"Its breaking news!!!",name:"Filter",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"feedback",description:"Its breaking news!!!",name:"Feedback",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"chat",description:"Its breaking news!!!",name:"Chatroom",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"prof",description:"Its breaking news!!!",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"rout" ,description:"Its breaking news!!!" ,name:"Help Section" ,url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"filter",description:"Its breaking news!!!",name:"Filter",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", },
+                {author :"William ",title:"feedback",description:"Its breaking news!!!",name:"Feedback",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
+                {author :"William ",title:"chat",description:"Its breaking news!!!",name:"Chatroom",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z", }];
 
 export default class ListItem extends Component {
   render() {
@@ -34,31 +34,34 @@ export default class ListItem extends Component {
 
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
-                <Tabs tabBarUnderlineStyle={{backgroundColor: '#00a4fe', opacity:0}} >
+                <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
-                         heading="Sports">
-                        <SignIn navigation={this.props.navigation}/>
+                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Personalised Feed">
+                        <SignIn navigation={this.props.navigation} data={data}/>
                     </Tab>
 
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
-                         heading="Politics">
+                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Trending">
                         <Register navigation={this.props.navigation}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
-                         heading="Politics">
+                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="General Elections">
                         <Register navigation={this.props.navigation}/>
                     </Tab>
                     
                 </Tabs>
+
+
                   
                   <View style={{flexDirection:'row' ,marginTop:7 , marginBottom: 7}}>
                     <View style={{flex:0.85}}>
@@ -77,11 +80,11 @@ export default class ListItem extends Component {
                     style={{
                       header: {},
                       tab: {
-                          backgroundColor: '#3F51B5'
+                          backgroundColor: '#0083d9'
                       },
                       alignSelf:'center',
                       borderBottomColor: 'black',
-                      borderBottomWidth: 1,
+                      borderBottomWidth: 0,
                       paddingLeft:20,
                       width:370
                     }}
