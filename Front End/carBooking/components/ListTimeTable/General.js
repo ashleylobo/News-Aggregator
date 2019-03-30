@@ -3,6 +3,8 @@ import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking,Touchable
 import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,CardItem,List, FlatList, Input, Form,Text, Icon} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
+import InAppBrowser from 'react-native-inappbrowser-reborn'
+
 
 const {width: WIDTH} = Dimensions.get('window');
 export default class SignIn extends Component {
@@ -11,7 +13,42 @@ export default class SignIn extends Component {
         this.state = {
             errorMessage: false
         }
-    } 
+        this.openLink=this.openLink.bind(this)
+
+    }
+    
+    async openLink(url) {
+      try {
+        if (await InAppBrowser.isAvailable()) {
+      
+          const result = await InAppBrowser.open(url, {
+           
+            // Android Properties
+            showTitle: true,
+            toolbarColor: '#6200EE',
+            secondaryToolbarColor: 'black',
+            enableUrlBarHiding: true,
+            enableDefaultShare: true,
+            forceCloseOnRedirection: false,
+            // Specify full animation resource identifier(package:anim/name)
+            // or only resource name(in case of animation bundled with app).
+            animations: {
+              startEnter: 'slide_in_right',
+              startExit: 'slide_out_left',
+              endEnter: 'slide_in_right',
+              endExit: 'slide_out_left',
+            },
+            headers: {
+              'my-custom-header': 'my custom header value'
+            },
+          })
+          Alert.alert(JSON.stringify(result))
+        }
+        else Linking.openURL(url)
+      } catch (error) {
+        Alert.alert(error.message)
+      }
+    }
 
     render() {
       console.warn(typeof(this.props.data))
@@ -37,7 +74,7 @@ export default class SignIn extends Component {
                 </CardItem>
                 
                 <TouchableOpacity onPress={()=>{
-                 Linking.openURL("https://www.google.com")
+                 this.openLink(data.url)
                }} >
                 <CardItem   >
                
