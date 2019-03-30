@@ -6,7 +6,7 @@ import logo from '../../assets/images/logo.png';
 import InAppBrowser from 'react-native-inappbrowser-reborn'
 import Share, {ShareSheet} from 'react-native-share';
 const {width: WIDTH} = Dimensions.get('window');
-export default class SignIn extends Component {
+export default class finance extends Component {
   
     constructor(props)  {
         super(props);
@@ -110,7 +110,7 @@ export default class SignIn extends Component {
                       <Text onPress={this.handleDoubleTap}>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
-                    <Icon name="star" style={{ color: '#dae031' }} onPress={this.handleDoubleTap} />
+                    <Icon name="star" style={{ color: '#dae031' }} />
                     </Body>
                   </Left>
                 </CardItem>
