@@ -40,19 +40,40 @@ export default class Login extends Component {
         return ( 
 
             <View style={styles.container}>
-                <View style={styles.header}></View>
-                <Image style={styles.avatar} source={require('../../assets/images/tumtum.jpg')}/>
+                
+                {/* <Image style={styles.avatar} source={require('../../assets/images/tumtum.jpg')}/> */}
                 <View style={styles.body}>
                     <View>
-                        <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#0083d9"}}
+                        {/* <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#0083d9"}}
                                 onPress={() => this.props.navigation.navigate('studentLogin')}>
                             <Text style={{color:'white'}} >I'm a Student</Text>
-                        </Button>
-
-                        {/* <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => this.props.navigation.navigate('driverLogin')}>
-                            <Text style={{color:'white'}}>I'm a Driver</Text>
                         </Button> */}
+                        
+
+                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>Sports</Text>
+                        </Button>
+                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>Entertainment</Text>
+                        </Button>
+                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>Science</Text>
+                        </Button>
+                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>Automobile</Text>
+                        </Button>
+                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>Astro</Text>
+                        </Button>
+                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>Science</Text>
+                        </Button>
                     </View>
                 </View>
             </View>
@@ -64,7 +85,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     header:{
       backgroundColor: "#00BFFF",
-      height:220,
+      height:110,
     },
     avatar: {
       width: 170,
