@@ -27,7 +27,7 @@ def predict():
     try :
         req=request.get_json(silent=True,force=True)
         print(req.get('queryResult').get('parameters'))
-        return jsonify( {'fulfillmentText':"Hi"} )
+        return jsonify( {'fulfillmentText':"HI"} )
 
     except:
         return jsonify( { "result" : "error" , "status"  : False } )      
