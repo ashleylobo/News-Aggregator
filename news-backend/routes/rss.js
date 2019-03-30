@@ -4,7 +4,7 @@ var router=exp.Router()
 
 
 router
-.route('/getnews')
-.get(apicntrlr.getnews)
+.route('/getrss')
+.get(apicntrlr.getrss)
 
 module.exports=router

@@ -2,9 +2,8 @@ var apicntrlr=require('../controller/api')
 var exp=require("express")
 var router=exp.Router()
 
-
 router
-.route('/getnews')
-.get(apicntrlr.getnews)
+.route('/keywords')
+.get(apicntrlr.keywords)
 
 module.exports=router

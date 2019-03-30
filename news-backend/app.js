@@ -39,19 +39,26 @@ passport.use(new localstrategy(function(username, password, done) {
     });
   }
 ))
-passport.serializeUser(User.serializeUser())
-passport.deserializeUser(User.deserializeUser())
-app.use(isLoggedIn);
+// passport.serializeUser(User.serializeUser())
+// passport.deserializeUser(User.deserializeUser())
+// app.use(isLoggedIn);
 
 //**************************** Routes section ********************************//
 var homeRoute=require('./routes/homeRoute')
 app.use('/',homeRoute)
 var auth=require('./routes/authentication')
 app.use('/authentication/',auth)
-var users=require('./routes/users')
-app.use('/users/',users)
-var api=require('./routes/api')
+
+
+var api=require('./routes/newsapi')
 app.use("/api",api)
+
+var keywords=require('./routes/keywords')
+app.use("/keywords",keywords)
+
+var rss=require('./routes/rss')
+app.use("/rss",rss)
+
 //**************************** Controllers section ********************************//
 
 

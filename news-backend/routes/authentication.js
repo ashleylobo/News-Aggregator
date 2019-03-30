@@ -26,7 +26,6 @@ router
 })
 
 router
-
 .route('/login')
 .get((req,res)=>{
 
