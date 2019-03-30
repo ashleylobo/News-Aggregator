@@ -25,9 +25,7 @@ export default class ListItem extends Component {
       
 
     <Container style={{backgroundColor:'#e8f5fc'}}>
-        <Content>  
-    
-    
+        <Content>      
 
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
