@@ -6,6 +6,8 @@ import Register from './Register';
 
 import {NetInfo} from 'react-native';
 
+var SampleArray = ["ONE", "TWO"] ;
+
 export default class Login extends Component {
     static navigationOptions = {
         header: null,
@@ -40,7 +42,14 @@ export default class Login extends Component {
         return ( 
 
             <View style={styles.container}>
-                
+                <View style={styles.header}><Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#000c21"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white', fontSize:28 }}>Preferences</Text>
+                        </Button></View>
+                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:660 , marginTop: 5, backgroundColor:"#000160"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white', fontSize:28 }}>Topics</Text>
+                        </Button>
                 {/* <Image style={styles.avatar} source={require('../../assets/images/tumtum.jpg')}/> */}
                 <View style={styles.body}>
                     <View>
@@ -49,33 +58,74 @@ export default class Login extends Component {
                             <Text style={{color:'white'}} >I'm a Student</Text>
                         </Button> */}
                         
-
-                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                        <View style={{flexDirection:"row"}}>
+                        <Button  rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
                             <Text style={{color:'white'}}>Sports</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
                             <Text style={{color:'white'}}>Entertainment</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                        </View>
+                        
+                        <View style={{flexDirection:"row"}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
                             <Text style={{color:'white'}}>Science</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
                             <Text style={{color:'white'}}>Automobile</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                        </View>
+                        <View style={{flexDirection:"row"}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
                             <Text style={{color:'white'}}>Astro</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:260 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
                             onPress={() => this.props.navigation.navigate('driverLogin')}>
                             <Text style={{color:'white'}}>Science</Text>
                         </Button>
+                        </View>
                     </View>
                 </View>
+                <Button rounded info style={{textAlign:'center',alignSelf: 'center',justifyContent:'center' ,width:660 , marginTop: 20, backgroundColor:"#000160"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white', fontSize:28 }}>Languages</Text>
+                        </Button>
+                        <View style={styles.body}>
+                    
+                        {/* <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#0083d9"}}
+                                onPress={() => this.props.navigation.navigate('studentLogin')}>
+                            <Text style={{color:'white'}} >I'm a Student</Text>
+                        </Button> */}
+                        
+                        <View style={{flexDirection:"row"}}>
+                        <Button  rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>English</Text>
+                        </Button>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>हिंदी</Text>
+                        </Button>
+                        </View>
+                        
+                        <View style={{flexDirection:"row"}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>मराठी</Text>
+                        </Button>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
+                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                            <Text style={{color:'white'}}>ગુજરતી</Text>
+                        </Button>
+                        </View>
+                                        
+                        </View>
+
             </View>
                
         );
@@ -84,8 +134,9 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
     header:{
-      backgroundColor: "#00BFFF",
-      height:110,
+      backgroundColor: "#000c21",
+      height:70,
+      
     },
     avatar: {
       width: 170,
@@ -104,7 +155,7 @@ const styles = StyleSheet.create({
       fontWeight:'600',
     },
     body:{
-      marginTop:140,
+      marginTop:20,
     },
     bodyContent: {
       flex: 1,

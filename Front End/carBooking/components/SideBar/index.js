@@ -13,7 +13,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 //                 {title:"feedback",name:"Feedback", icon:"comments"},
 //                 {title:"chat",name:"Chatroom", icon:"comment-dots"}];
 
-const routes = ["Login", "Chat", "Profile","Extra"];
+const routes = ["Login", "Chat", "Profile","Extra","Preferences"];
 
 export default class SideBar extends React.Component {
   render() {

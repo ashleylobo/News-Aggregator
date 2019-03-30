@@ -3,6 +3,8 @@ import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking,Touchable
 import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,CardItem,List, FlatList, Input, Form,Text, Icon} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
+import InAppBrowser from 'react-native-inappbrowser-reborn'
+
 
 const {width: WIDTH} = Dimensions.get('window');
 export default class SignIn extends Component {
@@ -11,7 +13,42 @@ export default class SignIn extends Component {
         this.state = {
             errorMessage: false
         }
-    } 
+        this.openLink=this.openLink.bind(this)
+
+    }
+    
+    async openLink(url) {
+      try {
+        if (await InAppBrowser.isAvailable()) {
+      
+          const result = await InAppBrowser.open(url, {
+           
+            // Android Properties
+            showTitle: true,
+            toolbarColor: '#6200EE',
+            secondaryToolbarColor: 'black',
+            enableUrlBarHiding: true,
+            enableDefaultShare: true,
+            forceCloseOnRedirection: false,
+            // Specify full animation resource identifier(package:anim/name)
+            // or only resource name(in case of animation bundled with app).
+            animations: {
+              startEnter: 'slide_in_right',
+              startExit: 'slide_out_left',
+              endEnter: 'slide_in_right',
+              endExit: 'slide_out_left',
+            },
+            headers: {
+              'my-custom-header': 'my custom header value'
+            },
+          })
+          Alert.alert(JSON.stringify(result))
+        }
+        else Linking.openURL(url)
+      } catch (error) {
+        Alert.alert(error.message)
+      }
+    }
 
     render() {
       console.warn(typeof(this.props.data))
@@ -26,18 +63,37 @@ export default class SignIn extends Component {
             
             
               <Card>
+                 <CardItem>
+                  <Left style={{flexDirection: 'row'}}>
+                    <Button rounded small style={{backgroundcolor:"#27e894"}}><Text>
+                    #Modiji</Text>
+                    </Button >
+                    <Button rounded small style={{backgroundcolor:"#27e894",marginLeft:5}}><Text>
+                    #EC </Text>
+                    </Button>
+                    
+                  </Left>
+                  <Right>
+                    <Text>
+                      Fake
+                    </Text>
+                  </Right>
+                </CardItem>
                 <CardItem>
                   <Left>
                     <Thumbnail source={require('./q.jpg')} />
+                    <Body style={{flexDirection: 'row'}}>
                     <Body>
                       <Text>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
+                    </Body>
+                    <Icon name="star" style={{ color: '#dae031' }} />
                     </Body>
                   </Left>
                 </CardItem>
                 
                 <TouchableOpacity onPress={()=>{
-                 Linking.openURL("https://www.google.com")
+                 this.openLink(data.url)
                }} >
                 <CardItem   >
                
@@ -49,9 +105,13 @@ export default class SignIn extends Component {
                   <Text>{data.description}</Text>
                 </CardItem>
                 <CardItem>
-                  <Left>
+                  <Left style={{flexDirection: 'row'}}>
                     <Button transparent>
                       <Icon active name="thumbs-up" />
+                      
+                    </Button>
+                    <Button transparent>
+                      <Icon active name="thumbs-down" />
                       
                     </Button>
                   </Left>
@@ -62,8 +122,8 @@ export default class SignIn extends Component {
                     </Button> */}
                   </Body>
                   <Right style={{flexDirection: 'row'}}>
-                  <Button small >
-                    <Icon active name="logo-facebook" />
+                  <Button small style={{marginRight:3}}>
+                    <Icon active name="square" />
                     </Button>
                     
                     <Button small>
