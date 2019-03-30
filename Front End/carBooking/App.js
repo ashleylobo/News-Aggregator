@@ -9,7 +9,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import {Button, Item, Input, Icon } from 'native-base';
+import {Button, Item, Left,Input,Container, Header, Icon } from 'native-base';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { createStackNavigator, createAppContainer,  createDrawerNavigator, createSwitchNavigator ,createBottomTabNavigator } from "react-navigation";
 
@@ -27,7 +27,9 @@ import PastRides from './components/PastRides';
 //-----------------------Drawer navigation Bar ---------------------------------------
 
 const Mdn = createDrawerNavigator({
+  
   listTimeTable:{screen:ListTimeTable},
+  
 },
 {
   contentComponent: SideBar,
@@ -64,18 +66,19 @@ const AppNavigator = createStackNavigator({
       headerLeft:(
         <FontAwesome5 name={"bars"} brand style={{paddingLeft:15 , fontSize: 30, color:'white'}} onPress={() => navigation.toggleDrawer()}/>
       ),
+      
       title:("Student Page"),
       headerTitleStyle: {
         fontWeight: "bold",
         fontSize:30,
-        paddingLeft:60,
+        paddingLeft:10,
         color: "white",
         
         alignSelf: 'center',
       },
       headerStyle: {
         borderBottomColor:"white",
-        borderBottomWidth:1,
+        borderBottomWidth:0,
         backgroundColor: "#0051a3"
       }
     };
