@@ -6,6 +6,9 @@ import axios from 'axios';
 import SignIn from './SignIn';
 import Register from './Register';
 import General from './General';
+import Sports from './sports';
+import Entertainment from './entertainment';
+import Finance from './finance';
 
 const routes = [
                 {author :"Jack ",title:"PM Modi's address to nation did not violate model code:EC",description:"Prime Minister Narendra Modi's address to the nation on the successful test-firing of an anti-satellite missile did not violate provisions of the model code of conduct, the Election Commission said on Friday night.",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
@@ -55,9 +58,9 @@ export default class ListItem extends Component {
                 <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         tabStyle={{backgroundColor: '#fff', height: 40,width:100}}
                          
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40,width:1000}}
                          heading="For You">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
@@ -75,6 +78,27 @@ export default class ListItem extends Component {
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
                          heading="General Elections">
                         <General navigation={this.props.navigation} data={routes}/>
+                    </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Sports">
+                        <Sports navigation={this.props.navigation} data={routes}/>
+                    </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Finance">
+                        <Finance navigation={this.props.navigation} data={routes}/>
+                    </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Entertainment">
+                        <Entertainment navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     
                 </Tabs>
@@ -102,11 +126,12 @@ export default class ListItem extends Component {
                       tab: {
                           backgroundColor: '#0083d9'
                       },
+                     
                       alignSelf:'center',
                       borderBottomColor: 'black',
                       borderBottomWidth: 0,
                       paddingLeft:20,
-                      width:370
+                      width:3700
                     }}
                   />
             
