@@ -61,12 +61,31 @@ export default class SignIn extends Component {
             
             
               <Card>
+                 <CardItem>
+                  <Left style={{flexDirection: 'row'}}>
+                    <Button rounded small style={{backgroundcolor:"#27e894"}}><Text>
+                    #Modiji</Text>
+                    </Button >
+                    <Button rounded small style={{backgroundcolor:"#27e894",marginLeft:5}}><Text>
+                    #EC </Text>
+                    </Button>
+                    
+                  </Left>
+                  <Right>
+                    <Text>
+                      Fake
+                    </Text>
+                  </Right>
+                </CardItem>
                 <CardItem>
                   <Left>
                     <Thumbnail source={require('./q.jpg')} />
+                    <Body style={{flexDirection: 'row'}}>
                     <Body>
                       <Text>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
+                    </Body>
+                    <Icon name="star" style={{ color: '#dae031' }} />
                     </Body>
                   </Left>
                 </CardItem>
@@ -84,11 +103,16 @@ export default class SignIn extends Component {
                   <Text>{data.description}</Text>
                 </CardItem>
                 <CardItem>
-                  <Left>
+                  <Left style={{flexDirection: 'row'}}>
                     <Button transparent>
                       <Icon active name="thumbs-up" />
                       
                     </Button>
+                    <Button transparent>
+                      <Icon active name="thumbs-down" />
+                      
+                    </Button>
+                    
                   </Left>
                   <Body>
                     {/* <Button transparent>
@@ -97,8 +121,8 @@ export default class SignIn extends Component {
                     </Button> */}
                   </Body>
                   <Right style={{flexDirection: 'row'}}>
-                  <Button small >
-                    <Icon active name="logo-facebook" />
+                  <Button small style={{marginRight:3}}>
+                    <Icon active name="square" />
                     </Button>
                     
                     <Button small>
