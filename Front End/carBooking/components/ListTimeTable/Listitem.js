@@ -61,7 +61,7 @@ export default class ListItem extends Component {
                          heading="For You">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
-
+                    
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: 'black', fontSize: 12}}
                          tabStyle={{backgroundColor: '#fff', height: 40}}
