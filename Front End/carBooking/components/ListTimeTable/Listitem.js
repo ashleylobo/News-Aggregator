@@ -27,21 +27,17 @@ export default class ListItem extends Component {
     <Container style={{backgroundColor:'#e8f5fc'}}>
         <Content>  
     
-        <List 
-            dataArray={routes}
-            renderRow={data => {
-              return (
+    
 
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
                 <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
-                         
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
-                         heading="Personalised Feed">
-                        <SignIn navigation={this.props.navigation} data={data}/>
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#0083d9', height: 60}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
+                         heading="For You">
+                        <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
 
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
@@ -63,18 +59,18 @@ export default class ListItem extends Component {
 
 
                   
-                  <View style={{flexDirection:'row' ,marginTop:7 , marginBottom: 7}}>
-                    <View style={{flex:0.85}}>
+                  {/* <View style={{flexDirection:'row' ,marginTop:7 , marginBottom: 7}}> */}
+                    {/* <View style={{flex:0.85}}>
                       <Text blurRadius={1} style={{color:'black' , fontSize:23, paddingLeft:20 ,paddingRight:5}}>07:40 PM  COLLEGE</Text>
                       <Text blurRadius={1} style={{color:'grey' , fontSize:12, paddingLeft:20 ,paddingRight:5}}>Superfast Spl. Sunday General</Text>
                       <Text blurRadius={1} style={{color:'grey' , fontSize:12, paddingLeft:20 ,paddingRight:5}}>STATION - COLLEGE</Text>
-                    </View>
+                    </View> */}
                     
-                    <View style={{flex:0.15 ,borderRightWidth:10 , borderRightColor: "red" , justifyContent:'center' , alignItems: 'center', }}>
+                    {/* <View style={{flex:0.15 ,borderRightWidth:10 , borderRightColor: "red" , justifyContent:'center' , alignItems: 'center', }}>
                       <Text blurRadius={1} style={{color:'black' , fontSize:12,paddingRight:5}}>35 min</Text>
                       <FontAwesome5 name={"star"} style={{fontSize:25}} />
-                    </View>
-                  </View>
+                    </View> */}
+                  {/* </View> */}
 
                   <View
                     style={{
@@ -91,9 +87,7 @@ export default class ListItem extends Component {
                   />
             
                 </View>  
-              );
-            }}
-          />
+              
         </Content>
       </Container>
 
