@@ -27,10 +27,7 @@ export default class ListItem extends Component {
     <Container style={{backgroundColor:'#e8f5fc'}}>
         <Content>  
     
-        <List 
-            dataArray={routes}
-            renderRow={data => {
-              return (
+    
 
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
@@ -40,7 +37,7 @@ export default class ListItem extends Component {
                          tabStyle={{backgroundColor: '#0083d9', height: 60}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
                          heading="Personalised Feed">
-                        <SignIn navigation={this.props.navigation} data={data}/>
+                        <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
 
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
@@ -76,9 +73,7 @@ export default class ListItem extends Component {
                   />
             
                 </View>  
-              );
-            }}
-          />
+              
         </Content>
       </Container>
 

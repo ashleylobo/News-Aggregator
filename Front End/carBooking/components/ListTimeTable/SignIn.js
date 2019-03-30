@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking,TouchableOpacity} from 'react-native';
-import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,CardItem, Label, Input, Form,Text, Icon} from "native-base";
+import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking,TouchableOpacity,ScrollView} from 'react-native';
+import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,CardItem,List, FlatList, Input, Form,Text, Icon} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 
@@ -15,20 +15,22 @@ export default class SignIn extends Component {
 
     render() {
       console.warn(typeof(this.props.data))
-      console.log("HERE  ",typeof(this.props.data.publishedAt))
-      d=new Date(this.props.data.publishedAt)
-      date=d.toLocaleString()
-      console.log("DATE is ",d.toLocaleString())
+      console.log("HERE  ",this.props.data)
         return (
             <Container>
+            <FlatList  
+            data={this.props.data}
+            renderItem={data => {
+              return (
+ 
             
-            <Content>
+            
               <Card>
                 <CardItem>
                   <Left>
                     <Thumbnail source={require('./b.png')} />
                     <Body>
-                      <Text>{this.props.data.title}</Text>
+                      <Text>{data.title}</Text>
                       <Text note>CNN</Text>
                     </Body>
                   </Left>
@@ -39,7 +41,7 @@ export default class SignIn extends Component {
                 <CardItem cardBody  >
               
             
-                  <Image source={{uri:this.props.data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
+                  <Image source={{uri:data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
                 </CardItem>
                 </TouchableOpacity>
              
@@ -57,11 +59,15 @@ export default class SignIn extends Component {
                     </Button>
                   </Body>
                   <Right>
-                    <Text>Published at : {date}</Text>
+                    <Text>Published at :{data.publishedAt}</Text>
                   </Right>
                 </CardItem>
               </Card>
-            </Content>
+               
+            );
+          }}
+          />
+          
           </Container>    
     //   <Container>
      
