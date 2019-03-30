@@ -35,31 +35,42 @@ export default class SignIn extends Component {
                     </Body>
                   </Left>
                 </CardItem>
+                
                 <TouchableOpacity onPress={()=>{
                  Linking.openURL("https://www.google.com")
                }} >
-                <CardItem cardBody  >
-              
+                <CardItem   >
+               
             
                   <Image source={{uri:data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
                 </CardItem>
                 </TouchableOpacity>
-             
+                <CardItem   >
+                  <Text>IDHAR DAAL</Text>
+                </CardItem>
                 <CardItem>
                   <Left>
-                    <Button transparent>
-                      <Icon active name="thumbs-up" />
-                      <Text>12 Likes</Text>
+                    <Button style={{ backgroundColor: 'green' }}>
+                      <Icon active name="thumbs-up" style={{ fontSize: 15, color: "#fff", lineHeight: 20 }}/>
+                      
                     </Button>
                   </Left>
-                  <Body>
-                    <Button transparent>
-                      <Icon active name="chatbubbles" />
-                      <Text>4 Comments</Text>
-                    </Button>
+                  
+                  <Body style={{flexDirection: 'row'}}>
+                    
+                    
+                    
                   </Body>
-                  <Right>
-                    <Text>Published at :{data.publishedAt}</Text>
+                  
+                  <Right style={{flexDirection: 'row'}}>
+                  <Button small >
+                    <Icon active name="logo-facebook" />
+                    </Button>
+                    
+                    <Button small>
+                    <Icon active name="logo-whatsapp" />
+                      
+                    </Button>
                   </Right>
                 </CardItem>
               </Card>
