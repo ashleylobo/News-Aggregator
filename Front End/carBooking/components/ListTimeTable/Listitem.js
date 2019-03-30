@@ -34,36 +34,11 @@ export default class ListItem extends Component {
 
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
-                <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
-                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
-                         
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
-                         heading="Personalised Feed">
-                        <SignIn navigation={this.props.navigation} data={data}/>
-                    </Tab>
 
-                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
-                         heading="Trending">
-                        <Register navigation={this.props.navigation}/>
-                    </Tab>
-                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: '#fff', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#0083d9', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
-                         heading="General Elections">
-                        <Register navigation={this.props.navigation}/>
-                    </Tab>
-                    
-                </Tabs>
 
 
                   
-                  <View style={{flexDirection:'row' ,marginTop:7 , marginBottom: 7}}>
+                  {/* <View style={{flexDirection:'row' ,marginTop:7 , marginBottom: 7}}> */}
                     {/* <View style={{flex:0.85}}>
                       <Text blurRadius={1} style={{color:'black' , fontSize:23, paddingLeft:20 ,paddingRight:5}}>07:40 PM  COLLEGE</Text>
                       <Text blurRadius={1} style={{color:'grey' , fontSize:12, paddingLeft:20 ,paddingRight:5}}>Superfast Spl. Sunday General</Text>
@@ -74,7 +49,7 @@ export default class ListItem extends Component {
                       <Text blurRadius={1} style={{color:'black' , fontSize:12,paddingRight:5}}>35 min</Text>
                       <FontAwesome5 name={"star"} style={{fontSize:25}} />
                     </View> */}
-                  </View>
+                  {/* </View> */}
 
                   <View
                     style={{

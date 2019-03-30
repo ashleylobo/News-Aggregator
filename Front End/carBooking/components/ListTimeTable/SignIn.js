@@ -20,9 +20,7 @@ export default class SignIn extends Component {
       date=d.toLocaleString()
       console.log("DATE is ",d.toLocaleString())
         return (
-            <Container>
-            
-            <Content>
+          <View>
               <Card>
                 <CardItem>
                   <Left>
@@ -72,8 +70,7 @@ export default class SignIn extends Component {
                   </Right> */}
                 </CardItem>
               </Card>
-            </Content>
-          </Container>    
+              </View>
     //   <Container>
      
     //   <Content >
