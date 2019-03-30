@@ -5,6 +5,7 @@ import {
 } from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
+import Preferences from './Preferences';
 
 const {width: WIDTH} = Dimensions.get('window');
 export default class SignIn extends Component {
@@ -49,12 +50,7 @@ export default class SignIn extends Component {
                                        value={this.state["formPassword"]}/>
                             </Item>
                             
-                            <Item floatingLabel>
-                                <Label>Roll Number</Label>
-                                <Input secureTextEntry
-                                       onChangeText={(text) => this.setState({"formPassword":text})}
-                                       value={this.state["formPassword"]}/>
-                            </Item>
+                           
 
                             <Item floatingLabel>
                                 <Label>Age</Label>
@@ -72,7 +68,7 @@ export default class SignIn extends Component {
                         </Form>
 
                         <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#0083d9"}}>
-                            <Text >Register</Text>
+                            <Text onPress={ () =>      this.props.navigation.navigate('Login')}>Register</Text>
                         </Button>
 
 
