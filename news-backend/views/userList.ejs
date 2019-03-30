@@ -1,0 +1,13 @@
+
+<% include ./partials/header%>
+
+<h2>Registered Users list</h2>
+<ol>
+<%  users.forEach(function(user){%>
+    <li>
+<p>   <bold><%= user.name%> </bold></p>
+</li>
+
+<%
+     })%>
+    </ol>

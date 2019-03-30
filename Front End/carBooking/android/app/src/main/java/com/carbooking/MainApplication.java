@@ -13,7 +13,7 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
-
+import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -28,8 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new ImagePickerPackage(),
             new VectorIconsPackage(),
-            new RNGestureHandlerPackage()
-      );
+            new RNGestureHandlerPackage(),
+            new RNInAppBrowserPackage()      );
     }
 
     @Override
