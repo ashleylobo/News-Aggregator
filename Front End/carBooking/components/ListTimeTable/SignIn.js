@@ -46,56 +46,33 @@ export default class SignIn extends Component {
                 </CardItem>
                 <CardItem>
                   <Left>
-                    <Button transparent>
+                    <Button small>
                       <Icon active name="thumbs-up" />
-                      <Text>12 Likes</Text>
+                      
                     </Button>
                   </Left>
                   
                   <Body style={{flexDirection: 'row'}}>
                     
-                    <Button transparent>
-                    <Icon active name="logo-facebook" />
-                    </Button>
                     
-                    <Button transparent>
-                    <Icon active name="logo-whatsapp" />
-                      
-                    </Button>
                     
                   </Body>
                   
-                  {/* <Right>
-                    <Text>Published at : {date}</Text>
-                  </Right> */}
+                  <Right style={{flexDirection: 'row'}}>
+                  <Button small >
+                    <Icon active name="logo-facebook" />
+                    </Button>
+                    
+                    <Button small>
+                    <Icon active name="logo-whatsapp" />
+                      
+                    </Button>
+                  </Right>
                 </CardItem>
               </Card>
-              </View>
-    //   <Container>
-     
-    //   <Content >
-    //     <Card>
-    //       <CardItem header bordered>
-    //         <Text>Tittle</Text>
-    //       </CardItem>
-    //       <CardItem bordered>
-    //         <Body>
-    //           <Text>
-    //             NativeBase is a free and open source framework that enable
-    //             developers to build
-    //             high-quality mobile apps using React Native iOS and Android
-    //             apps
-    //             with a fusion of ES6.
-    //           </Text>
-    //         </Body>
-    //       </CardItem>
-    //       <CardItem footer bordered>
-    //         <Text>GeekyAnts</Text><Icon name="ios-refresh" />
-    //       </CardItem>
-        
-    //     </Card>
-    //   </Content>
-    // </Container>
+            </Content>
+          </Container>    
+    
         );
     }
 }

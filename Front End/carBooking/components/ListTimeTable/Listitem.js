@@ -34,7 +34,32 @@ export default class ListItem extends Component {
 
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
+                <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Personalised Feed">
+                        <SignIn navigation={this.props.navigation} data={data}/>
+                    </Tab>
 
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="Trending">
+                        <Register navigation={this.props.navigation}/>
+                    </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: 'black', fontSize: 12}}
+                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         heading="General Elections">
+                        <Register navigation={this.props.navigation}/>
+                    </Tab>
+                    
+                </Tabs>
 
 
                   
