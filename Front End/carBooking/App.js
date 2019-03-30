@@ -10,6 +10,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {Button, Item, Input, Icon } from 'native-base';
+import { SearchBar } from 'react-native-elements';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { createStackNavigator, createAppContainer,  createDrawerNavigator, createSwitchNavigator ,createBottomTabNavigator } from "react-navigation";
 
@@ -21,7 +22,7 @@ import SideBar from './components/SideBar';
 import ListTimeTable from './components/ListTimeTable';
 import DriverDummy from './components/DriverDummy';   //rename ur calss and folder path
 import DriverDummyNew from './components/DriverDummyNew'; //rename ur calss and folder path
-import PastRides from './components/PastRides';
+import ChatBot from './components/ChatBot';
 
 
 //-----------------------Drawer navigation Bar ---------------------------------------
@@ -33,7 +34,7 @@ const Mdn = createDrawerNavigator({
   contentComponent: SideBar,
 },
 )
- 
+
 // const Mdn = createDrawerNavigator({
 //   listTimeTable:{screen:ListTimeTable},
 // },
@@ -46,14 +47,14 @@ const Mdn = createDrawerNavigator({
 
 
 const AppNavigator = createStackNavigator({
-  profile: Mdn,
-  Login: { screen: LoginStudent }, 
+  chatBot:{screen:ChatBot},
+  login: { screen: Login }, 
   studentLogin :{screen:LoginStudent},
   driverLogin:{screen:LoginDriver},
   driverdummy:{screen:DriverDummy},             //rename  screen to ur calssName and put dhang ka label instead of driverdummy
   driverdummynew:{screen:DriverDummyNew},       //rename  screen to ur calssName and put dhang ka label instead of driverdummynew
-  pastRides:{screen:PastRides},
-   
+  // chatBot:{screen:ChatBot},
+   profile: Mdn,
   // navigateRoute:{screen:NavigateRouteInput},
   // navigateMaps:{screen:NavRouteMaps},
   // filter : { screen : filterScreen },
@@ -63,7 +64,8 @@ const AppNavigator = createStackNavigator({
     return {
       headerLeft:(
         <FontAwesome5 name={"bars"} brand style={{paddingLeft:15 , fontSize: 30, color:'white'}} onPress={() => navigation.toggleDrawer()}/>
-      ),
+      )
+      ,
       title:("Student Page"),
       headerTitleStyle: {
         fontWeight: "bold",
