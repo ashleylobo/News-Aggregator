@@ -46,7 +46,7 @@ export default class SignIn extends Component {
                 </CardItem>
                 </TouchableOpacity>
                 <CardItem   >
-                  <Text>IDHAR DAAL</Text>
+                  <Text>{data.description}</Text>
                 </CardItem>
                 <CardItem>
                   <Left>
