@@ -35,31 +35,42 @@ export default class SignIn extends Component {
                     </Body>
                   </Left>
                 </CardItem>
+                
                 <TouchableOpacity onPress={()=>{
                  Linking.openURL("https://www.google.com")
                }} >
-                <CardItem cardBody  >
-              
+                <CardItem   >
+               
             
                   <Image source={{uri:data.urlToImage}}  style={{height: 200, width: null, flex: 1}}/>
                 </CardItem>
                 </TouchableOpacity>
-             
+                <CardItem   >
+                  <Text>IDHAR DAAL</Text>
+                </CardItem>
                 <CardItem>
                   <Left>
-                    <Button transparent>
+                    <Button small>
                       <Icon active name="thumbs-up" />
-                      <Text>12 Likes</Text>
+                      
                     </Button>
                   </Left>
-                  <Body>
-                    <Button transparent>
-                      <Icon active name="chatbubbles" />
-                      <Text>4 Comments</Text>
-                    </Button>
+                  
+                  <Body style={{flexDirection: 'row'}}>
+                    
+                    
+                    
                   </Body>
-                  <Right>
-                    <Text>Published at :{data.publishedAt}</Text>
+                  
+                  <Right style={{flexDirection: 'row'}}>
+                  <Button small >
+                    <Icon active name="logo-facebook" />
+                    </Button>
+                    
+                    <Button small>
+                    <Icon active name="logo-whatsapp" />
+                      
+                    </Button>
                   </Right>
                 </CardItem>
               </Card>
@@ -69,31 +80,7 @@ export default class SignIn extends Component {
           />
           
           </Container>    
-    //   <Container>
-     
-    //   <Content >
-    //     <Card>
-    //       <CardItem header bordered>
-    //         <Text>Tittle</Text>
-    //       </CardItem>
-    //       <CardItem bordered>
-    //         <Body>
-    //           <Text>
-    //             NativeBase is a free and open source framework that enable
-    //             developers to build
-    //             high-quality mobile apps using React Native iOS and Android
-    //             apps
-    //             with a fusion of ES6.
-    //           </Text>
-    //         </Body>
-    //       </CardItem>
-    //       <CardItem footer bordered>
-    //         <Text>GeekyAnts</Text><Icon name="ios-refresh" />
-    //       </CardItem>
-        
-    //     </Card>
-    //   </Content>
-    // </Container>
+    
         );
     }
 }
