@@ -11,4 +11,3 @@ var userSchema=new Schema({
 userSchema.plugin(passportlocalmongoose)
 module.exports=mongoose.model("user",userSchema)
 
-

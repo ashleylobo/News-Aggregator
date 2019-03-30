@@ -8,6 +8,8 @@ var parser        = require('body-parser')
 var passport      = require('passport')
 var localstrategy = require('passport-local').Strategy
 var User          = require('./model/user')
+var flaggedNews   = require('./model/flaggedNews')
+
 require('./model/dbconnection')
 //Assigning public folder for all static file references
 
@@ -77,6 +79,10 @@ function isLoggedIn(req, res, next){
 //   });
  
 // })();
+
+app.get("*",function(req,res){
+	res.send("<h1>404 Page Not Found<h1>");
+});
 
 
 app.listen(port,()=>{

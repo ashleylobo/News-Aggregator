@@ -15,4 +15,6 @@ router
 .post((req,res)=>{
     res.render('second',{d:req.body.data,req:req})  //when data comes from form
 })
+
+
 module.exports=router
