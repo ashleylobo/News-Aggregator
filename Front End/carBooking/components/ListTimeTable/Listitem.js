@@ -36,7 +36,7 @@ export default class ListItem extends Component {
                          textStyle={{color: '#fff', fontSize: 12}}
                          tabStyle={{backgroundColor: '#0083d9', height: 60}}
                          activeTabStyle={{backgroundColor: '#00a4fe', height: 60}}
-                         heading="Personalised Feed">
+                         heading="For You">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
 

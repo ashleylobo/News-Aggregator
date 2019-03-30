@@ -17,10 +17,10 @@ export default class SignIn extends Component {
       console.warn(typeof(this.props.data))
       console.log("HERE  ",this.props.data)
         return (
-            <Container>
-            <FlatList  
-            data={this.props.data}
-            renderItem={data => {
+            <ScrollView>
+            <List  
+            dataArray ={this.props.data}
+            renderRow ={data => {
               return (
  
             
@@ -68,7 +68,7 @@ export default class SignIn extends Component {
           }}
           />
           
-          </Container>    
+          </ScrollView>    
     //   <Container>
      
     //   <Content >
