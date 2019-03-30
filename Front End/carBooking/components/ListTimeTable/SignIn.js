@@ -48,8 +48,8 @@ export default class SignIn extends Component {
                 </CardItem>
                 <CardItem>
                   <Left>
-                    <Button small>
-                      <Icon active name="thumbs-up" />
+                    <Button style={{ backgroundColor: 'green' }}>
+                      <Icon active name="thumbs-up" style={{ fontSize: 15, color: "#fff", lineHeight: 20 }}/>
                       
                     </Button>
                   </Left>
