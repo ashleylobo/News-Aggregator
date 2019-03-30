@@ -4,13 +4,14 @@ import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,C
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 import InAppBrowser from 'react-native-inappbrowser-reborn'
-
+import Share, {ShareSheet} from 'react-native-share';
 const {width: WIDTH} = Dimensions.get('window');
 export default class SignIn extends Component {
     constructor(props)  {
         super(props);
         this.state = {
-            errorMessage: false
+            errorMessage: false,
+            ShareType:'whatsapp'
         }
         this.openLink=this.openLink.bind(this)
     } 
@@ -50,6 +51,13 @@ export default class SignIn extends Component {
 
 
     render() {
+      let shareOptions = {
+        title: "React Native",
+        message: "Hola mundo",
+        url: "http://facebook.github.io/react-native/",
+        subject: "Share Link", //  for email
+        social: this.state.ShareType
+      };
       console.warn(typeof(this.props.data))
       console.log("HERE  ",this.props.data)
         return (
@@ -58,7 +66,7 @@ export default class SignIn extends Component {
             dataArray ={this.props.data}
             renderRow ={data => {
               return (
- 
+            
             
             
               <Card>
@@ -126,7 +134,12 @@ export default class SignIn extends Component {
                     <Icon active name="square" />
                     </Button>
                     
-                    <Button small>
+                    <Button small                   onPress={()=>{
+
+              setTimeout(() => {
+                Share.shareSingle(Object.assign(shareOptions));
+              },300);
+            }}>
                     <Icon active name="logo-whatsapp" />
                       
                     </Button>
