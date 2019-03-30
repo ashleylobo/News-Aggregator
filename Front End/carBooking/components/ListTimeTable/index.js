@@ -125,6 +125,14 @@ handleRickshawPress = () =>{
             </Button>
           </View>
 
+          <View style={{flex:0.5}}>
+            <Button info style={{textAlign:'center',justifyContent:'center', alignSelf: 'stretch', backgroundColor:"#0051a3"}}
+                    onPress={ () =>      this.props.navigation.navigate('chatBot') }>
+                {/* <Text style={{color:'white'}}>Home</Text> */}
+                <Icon name="search"/>
+            </Button>
+          </View>
+
         </View>
 
 {/* ------------------------------------------------Tum   Tum---------------------------------------------------------------------------------------------------- */}
