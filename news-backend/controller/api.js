@@ -5,7 +5,10 @@ var WordPOS = require('wordpos'),
     wordpos = new WordPOS();
 
 var Promise = require('promise');
-// let Parser = require('rss-parser');
+let Parser = require('rss-parser');
+const JSON = require('circular-json');
+
+
 // let parser = new Parser();
 //     (async () => {
 //       try{
@@ -22,26 +25,43 @@ var Promise = require('promise');
      
      
 //     })();
+// getnews =(req,res)=>{
+//   var req = parser.parse(req);
+//   console.log(req)
+//   wordpos.getNouns('hello monday how are you', function(result){
+//     console.log('efsfsdfsd')
+//   }); 
+// }
 
-getnews=()=>{
-    newsapi.v2.everything({
-    q: 'bitcoin',
-    sources: 'bbc-news,the-verge',
-    domains: 'bbc.co.uk, techcrunch.com',
-    from: '2017-12-01',
-    to: '2017-12-12',
-    language: 'en',
-    sortBy: 'relevancy',
-    page: 2
-  }).then(response => {
-    console.log(response);
-   
+
+getnews=(req,res)=>{
+    // console.log(req)
+    newsapi.v2.everything({ 
+    q:req.query.title,
+    sources:req.query.sources,
+    domains: req.query.domain,
+    from: '2019-21-03',
+    to: '2019-02-27',
+    language:req.query.language,
+    sortBy: "relevancy",
+    },
+    function(err,res){
+    console.log(res)
   });
 }
 
+
+    /*
+      {
+        status: "ok",
+        articles: [...]
+      }
+    */
+
+
 keywords =(req,res)=>{
-  wordpos.getNouns(req, function(result){
-    console.log(result);
+  wordpos.getNouns('hello monday how are you', function(result){
+    console.log('efsfsdfsd')
   }); 
 }
 
@@ -54,6 +74,7 @@ getrss =(req,res)=>{
        
         feed.items.forEach(item => {
           console.log(item.title + ':' + item.link)
+          res.send({s:"heelo"})
         });
       }
       catch{
