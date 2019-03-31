@@ -14,6 +14,18 @@ export default class SignIn extends Component {
         }
         this.openLink=this.openLink.bind(this)
     } 
+    lastTap = null;
+    handleDoubleTap = (data) => {
+      const now = Date.now();
+      const DOUBLE_PRESS_DELAY = 300;
+      if (this.lastTap && (now - this.lastTap) < DOUBLE_PRESS_DELAY) {
+        alert("It's breaking news");
+        // this.sendURL(data.url);
+        // console.log(data.url);
+      } else {
+        this.lastTap = now;
+      }
+    }
 
     async openLink(url) {
         try {
@@ -82,7 +94,7 @@ export default class SignIn extends Component {
                     <Thumbnail source={require('./q.jpg')} />
                     <Body style={{flexDirection: 'row'}}>
                     <Body>
-                      <Text>{data.title}</Text>
+                      <Text onPress={this.handleDoubleTap}>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
                     <Icon name="star" style={{ color: '#dae031' }} />
