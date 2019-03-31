@@ -17,6 +17,16 @@ export default class Login extends Component {
         super(props);
         this.state = {
             abc: 1,
+            sports:True,
+            Entertainment:True,
+            Science:True,
+            Politics:True,
+            Finance:True,
+            Technology:True,
+            English:True,
+            Hindi:True,
+            Marathi:True,
+            Gujarati:True
         };
     }
 
@@ -37,18 +47,9 @@ export default class Login extends Component {
         })
     } 
     backgroundColorChange(bgcolor){
-        if(bgcolor=='white'){
-            this.setState({
-                backgroundColor:"#000160"
-            })
-        }
-
-        else{
-            this.setState({
-                backgroundColor:'white'
-            })
-        }
-
+        this.setState({
+            bgcolor:!bgcolor
+        })
     }
 
     render() {
@@ -73,8 +74,8 @@ export default class Login extends Component {
                         </Button> */}
                         
                         <View style={{flexDirection:"row"}}>
-                        <Button  rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                           onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button  rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.sports?'#0083d9':'white'  }}
+                           onPress={() => {this.backgroundColorChange(this.state.sports)}}>
                             <Text style={{color:'black'}}>Sports</Text>
                         </Button>
                         <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
