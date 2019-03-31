@@ -1,6 +1,5 @@
 import flask
 import os
-import requests 
 from flask import jsonify, request
 from flask import flash, redirect, url_for, session
 from joblib import load
@@ -49,26 +48,21 @@ def predict():
     lang=req.get('queryResult').get('queryText')
     
  
-    # translation = translate_client.translate(
-    # lang,
-    # target_language=target)
-    # print(u'Translation: {}'.format(translation['detectedSourceLanguage']))
+    translation = translate_client.translate(
+    lang,
+    target_language=target)
+    print(u'Translation: {}'.format(translation['detectedSourceLanguage']))
 
-    # if(translation['detectedSourceLanguage']=='en'):
-    print((sources)," ",(query))
-    api="https://newsapi.org/v2/everything?language=en&sources="+sources+"&q="+query+"&sortBy=relevancy&apiKey=36fd349c075147679b59a5062066cc0b"
-    res=requests.get(api)
-    # print(res.json())
-    text=res.json()['articles'][0]['description']
-    print("done")
-    return jsonify( {'fulfillmentText':text} )
-    # else:
-    #     print("hi")
-    #     langApi="https://d8b9797a.ngrok.io/rss/getrss"
-    #     data={'context':'Ipl'}
-    #     r = requests.post(url=langApi, data=data) 
-    #     print(r.text)
-    #     return jsonify( {'fulfillmentText':r.text} ) 
+    if(translation['detectedSourceLanguage']=='en'):
+        print(type(sources)," ",type(query))
+        api="https://newsapi.org/v2/everything?language=en&sources="+sources+"&q="+query+"&sortBy=relevancy&apiKey=89cfff18287d4adb919382ad1f8cfecd"
+        res=requests.get(api)
+        text=res.json()['articles'][0]['description']
+        print(text)
+        return jsonify( {'fulfillmentText':text} )
+    else:
+        print("hi")
+        return jsonify( {'fulfillmentText':lang} )
 
     # message=[{'text':{'text':[res.json()['articles'][0]['urlToImage'],res.json()['articles'][0]['description']]}}]
     # print(api)

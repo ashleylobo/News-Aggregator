@@ -7,8 +7,6 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SocketIOClient from 'socket.io-client';
 import IPADDR from '../../assets/constant/IP';
 import call from 'react-native-phone-call'
-import Geolocation from 'react-native-geolocation-service';
-import AwesomeAlert from 'react-native-awesome-alerts';
 
 export default class studentNavigation extends Component {
 
@@ -32,7 +30,6 @@ export default class studentNavigation extends Component {
       contactNo : user.contactNo,
       rating : user.rating,
       tumtumNumber:'1',
-      showAlert: false,
       rickshawNumber:'1',
       destination:"College",
       driverContactNo : 9730304944
@@ -41,45 +38,16 @@ export default class studentNavigation extends Component {
   }
 
 
-  // componentDidMount() {
-
-  //   this.socket.on('accept', (msg)=>{
-  //     var findingTumTumMsg = `Mr ${msg.driverId} has accepted your request`
-  //     console.log(msg)
-  //     this.setState({ accepted : true , 
-  //       driverId : msg.driverId, findingTumTumMsg , driverContactNo : msg.contactNo })
-  //   })
-
-  // }
-
-  showAlert = () => {
-    this.setState({
-      showAlert: true
-    });
-  };
- 
-  hideAlert = () => {
-    this.setState({
-      showAlert: false
-    });
-  };
   componentDidMount() {
-    // Instead of navigator.geolocation, just use Geolocation.
 
-    navigator.geolocation.getCurrentPosition(
-            (position) => {
-                console.log(position);
-            },
-            (error) => {
-              console.log(JSON.stringify(error.message));
-              this.setState({
-                showAlert: true
-              });
-            },
-            { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-        );
+    this.socket.on('accept', (msg)=>{
+      var findingTumTumMsg = `Mr ${msg.driverId} has accepted your request`
+      console.log(msg)
+      this.setState({ accepted : true , 
+        driverId : msg.driverId, findingTumTumMsg , driverContactNo : msg.contactNo })
+    })
 
-}
+  }
 
   handleCall = () =>{
     var num = this.state.driverContactNo;
@@ -127,7 +95,6 @@ handleRickshawPress = () =>{
 
 
   render() {
-    const {showAlert} = this.state;
     console.disableYellowBox = true;
     return (
       <View style={{flex:1 , backgroundColor:'#BA68C8'}}>
@@ -157,13 +124,13 @@ handleRickshawPress = () =>{
                 <Icon name="ios-star"/>
             </Button>
           </View>
-          {/* <View style={{flex:0.5}}>
+          <View style={{flex:0.5}}>
             <Button info style={{textAlign:'center',justifyContent:'center', alignSelf: 'stretch', backgroundColor:"#0051a3"}}
                     onPress={ () =>      this.props.navigation.navigate('tv') }>
-                
+                {/* <Text style={{color:'white'}}>Home</Text> */}
                 <Icon name="tv"/>
             </Button>
-          </View> */}
+          </View>
 
           <View style={{flex:0.5}}>
             <Button info style={{textAlign:'center',justifyContent:'center', alignSelf: 'stretch', backgroundColor:"#0051a3"}}
@@ -174,25 +141,7 @@ handleRickshawPress = () =>{
           </View>
 
         </View>
-        <AwesomeAlert
-          show={showAlert}
-          showProgress={false}
-          title="No Location"
-          message="Turn On Location Services"
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showCancelButton={true}
-          // showConfirmButton={true}
-          cancelText="Cancel"
-          confirmText="Yes, delete it"
-          confirmButtonColor="#DD6B55"
-          onCancelPressed={() => {
-            this.hideAlert();
-          }}
-          onConfirmPressed={() => {
-            this.hideAlert();
-          }}
-        />
+
 {/* ------------------------------------------------Tum   Tum---------------------------------------------------------------------------------------------------- */}
 
         <Dialog
