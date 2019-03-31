@@ -1,12 +1,24 @@
 import React, {Component} from "react";
-import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking,TouchableOpacity,ScrollView} from 'react-native';
+import {StyleSheet, ImageBackground, Image, View, Dimensions , Linking,TouchableOpacity,ToastAndroid,ScrollView} from 'react-native';
 import {Container, Content, Header,Body,Button,Left,Thumbnail,Right, Item,Card,CardItem,List, FlatList, Input, Form,Text, Icon} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import logo from '../../assets/images/logo.png';
 import InAppBrowser from 'react-native-inappbrowser-reborn'
-import axios from "axios";
 import Share, {ShareSheet} from 'react-native-share';
 const {width: WIDTH} = Dimensions.get('window');
+const Toast = (props) => {
+  if (props.visible) {
+    ToastAndroid.showWithGravityAndOffset(
+      props.message,
+      ToastAndroid.LONG,
+      ToastAndroid.BOTTOM,
+      50,
+      100,
+    );
+    return null;
+  }
+  return null;
+};
 export default class SignIn extends Component {
   
     constructor(props)  {
@@ -15,9 +27,29 @@ export default class SignIn extends Component {
             errorMessage: false,
             ShareType:'whatsapp'
         }
-        this.follow=this.follow.bind(this)
-        this.openLink=this.openLink.bind(this)  
+        this.state = {
+          visible: false,
+        }
+        this.openLink=this.openLink.bind(this)
     } 
+    
+    
+    handleButtonPress = () => {
+      this.setState(
+        {
+          visible: true,
+          
+        },
+        () => {
+          this.hideToast();
+        },
+      );
+    };
+    hideToast = () => {
+      this.setState({
+        visible: false,
+      });
+    };
     // sendURL=() { console.log(data.url); }
     lastTap = null;
     handleDoubleTap = () => {
@@ -31,17 +63,8 @@ export default class SignIn extends Component {
         this.lastTap = now;
       }
     }
+    
 
-    follow(data){
-      console.log("saved to favourite ")
-      axios.post("http://192.168.43.57:2454/api/addfollow",{data})
-      .then((r)=>{
-console.log("success")
-      })
-.catch((e)=>{
-  console.log("error ",e)
-})
-    }
     async openLink(url) {
       try {
         if (await InAppBrowser.isAvailable()) {
@@ -74,12 +97,18 @@ console.log("success")
         Alert.alert(error.message)
       }
     }
+    getInitialState(){
+      return{logo: "star-o, check: false,color:#dae031"}
+   }
+   stateChange= () => {
+    this.state.check === false ? this.setState(alert("done")) : this.setState({logo:'star-o', check:false})
+   }
 
 
     render() {
 
       console.warn(typeof(this.props.data))
-      // console.log("HERE  ",this.props.data)
+      console.log("HERE  ",this.props.data)
         return (
             <ScrollView>
             <List  
@@ -118,7 +147,8 @@ console.log("success")
                     <Thumbnail source={require('./q.jpg')} />
                     <Body style={{flexDirection: 'row'}}>
                     <Body >
-                      <Text>{data.title}</Text>
+                      
+                      <Text onPress={this.handleDoubleTap}>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
                     <Icon name="star" style={{ color: '#dae031' }} onPress={()=>{

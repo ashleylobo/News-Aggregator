@@ -3,6 +3,8 @@ package com.carbooking;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
+import de.innfactory.apiai.RNApiAiPackage;
 import cl.json.RNSharePackage;
 import com.imagepicker.ImagePickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -27,6 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeYouTube(),
+            new RNApiAiPackage(),
             new RNSharePackage(),
             new ImagePickerPackage(),
             new VectorIconsPackage(),
