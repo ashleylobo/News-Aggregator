@@ -39,9 +39,9 @@ export default class SignIn extends React.Component {
       const now = Date.now();
       const DOUBLE_PRESS_DELAY = 300;
       if (this.lastTap && (now - this.lastTap) < DOUBLE_PRESS_DELAY) {
-        alert("data");
+        alert("as");
         // this.sendURL(data.url);
-        console.log(data.url);
+        // console.log(data.url);
       } else {
         this.lastTap = now;
       }
