@@ -24,27 +24,28 @@ export default class ListItem extends Component {
   constructor(props)  {
     super(props);
     this.state = {
-        errorMessaroutesnews:[]
+        errorMessaroutesnews:[],
+        news:[]
     } 
 
   } 
 
-  // // componentDidMount(){
-  // //   // axios.get('http://192.168.43.57:2454/api/getnews')
-  // //   // .then((res)=>{
-  // //   //   // console.log("called ",res.data)
-  // //   //   this.setState({news:res.data})
-  // //   //    console.log("Cool ",this.state.news)
+  componentDidMount(){
+    axios.get('http://192.168.43.57:2454/api/getnews')
+    .then((res)=>{
+       console.log("called ",res.data)
+      this.setState({news:res.data})
+       console.log("Cool ",this.state.news)
 
-  // //   }
+    }
     
-  // //   )
-  // //   .catch((d)=>{
-  // //     console.log("error ",d) 
-  // //   })
+    )
+    .catch((d)=>{
+      console.log("error ",d) 
+    })
     
     
-  //     }
+      }
    render() {
     
     return (    
@@ -62,7 +63,7 @@ export default class ListItem extends Component {
                          
                          activeTabStyle={{backgroundColor: '', height: 40,width:1000}}
                          heading="For You">
-                        <SignIn navigation={this.props.navigation} data={routes}/>
+                        <SignIn navigation={this.props.navigation} data={this.state.news}/>
                     </Tab>
                     
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
@@ -70,7 +71,7 @@ export default class ListItem extends Component {
                          tabStyle={{backgroundColor: '', height: 40}}
                          activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="Trending">
-                        <Register navigation={this.props.navigation} data={routes}/>
+                        <Register navigation={this.props.navigation} data={this.state.news}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
                          textStyle={{color: '#fff', fontSize: 12}}

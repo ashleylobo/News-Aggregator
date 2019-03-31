@@ -6,20 +6,8 @@ import logo from '../../assets/images/logo.png';
 import InAppBrowser from 'react-native-inappbrowser-reborn'
 import Share, {ShareSheet} from 'react-native-share';
 const {width: WIDTH} = Dimensions.get('window');
-const Toast = (props) => {
-  if (props.visible) {
-    ToastAndroid.showWithGravityAndOffset(
-      props.message,
-      ToastAndroid.LONG,
-      ToastAndroid.BOTTOM,
-      50,
-      100,
-    );
-    return null;
-  }
-  return null;
-};
-export default class SignIn extends Component {
+
+export default class SignIn extends React.Component {
   
     constructor(props)  {
         super(props);
@@ -31,6 +19,7 @@ export default class SignIn extends Component {
           visible: false,
         }
         this.openLink=this.openLink.bind(this)
+        this.handleDoubleTap
     } 
     
     
@@ -40,23 +29,17 @@ export default class SignIn extends Component {
           visible: true,
           
         },
-        () => {
-          this.hideToast();
-        },
+       
       );
     };
-    hideToast = () => {
-      this.setState({
-        visible: false,
-      });
-    };
+
     // sendURL=() { console.log(data.url); }
     lastTap = null;
-    handleDoubleTap = () => {
+    handleDoubleTap = (data) => {
       const now = Date.now();
       const DOUBLE_PRESS_DELAY = 300;
       if (this.lastTap && (now - this.lastTap) < DOUBLE_PRESS_DELAY) {
-        alert("as");
+        alert("data");
         // this.sendURL(data.url);
         console.log(data.url);
       } else {
@@ -148,14 +131,13 @@ export default class SignIn extends Component {
                     <Body style={{flexDirection: 'row'}}>
                     <Body >
                       
-                      <Text onPress={this.handleDoubleTap}>{data.title}</Text>
+                      <Text onPress={this.handleDoubleTap({data})}>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
                     <Icon name="star" style={{ color: '#dae031' }} onPress={()=>{
                       this.follow(data.source.name)
                     }} />
 
-                    <Icon name="star" style={{ color: '#dae031' }} onPress={this.handleDoubleTap} />
 
                     </Body>
                   </Left>

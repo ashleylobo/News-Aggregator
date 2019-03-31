@@ -29,16 +29,15 @@ const htmlToText = require('html-to-text');
      
 //     })();
 
-getnews=()=>{
+getnews=(req,res)=>{
     newsapi.v2.everything({
     q: 'bitcoin',
     sources: 'bbc-news,the-verge',
     domains: 'bbc.co.uk, techcrunch.com',
-    from: '2017-12-01',
-    to: '2017-12-12',
+   
     language: 'en',
     sortBy: 'relevancy',
-    page: 2
+   
   }).then(response => {
     console.log("News sent to native ",response);
     res.send(response.articles)
@@ -46,7 +45,11 @@ getnews=()=>{
     
     console.log(response);
    
-  });
+  })
+  .catch((r)=>{
+    console.log("r ",r)
+  })
+
 }
 
 addfollow=(req,res)=>{
