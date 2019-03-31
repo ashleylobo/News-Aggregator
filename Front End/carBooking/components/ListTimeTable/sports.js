@@ -22,9 +22,9 @@ export default class sports extends Component {
       const now = Date.now();
       const DOUBLE_PRESS_DELAY = 300;
       if (this.lastTap && (now - this.lastTap) < DOUBLE_PRESS_DELAY) {
-        alert("as");
+        alert("It's breaking news");
         // this.sendURL(data.url);
-        console.log(data.url);
+        // console.log(data.url);
       } else {
         this.lastTap = now;
       }
