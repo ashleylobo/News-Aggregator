@@ -31,7 +31,7 @@ export default class ListItem extends Component {
   } 
 
   componentDidMount(){
-    axios.get('http://192.168.43.57:2454/api/getnews')
+    axios.get(' https://9638fdeb.ngrok.io/api/getnews')
     .then((res)=>{
        console.log("called ",res.data)
       this.setState({news:res.data})
