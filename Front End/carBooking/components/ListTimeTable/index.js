@@ -8,6 +8,7 @@ import SocketIOClient from 'socket.io-client';
 import IPADDR from '../../assets/constant/IP';
 import call from 'react-native-phone-call'
 import Geolocation from 'react-native-geolocation-service';
+import AwesomeAlert from 'react-native-awesome-alerts';
 
 export default class studentNavigation extends Component {
 
@@ -31,6 +32,7 @@ export default class studentNavigation extends Component {
       contactNo : user.contactNo,
       rating : user.rating,
       tumtumNumber:'1',
+      showAlert: false,
       rickshawNumber:'1',
       destination:"College",
       driverContactNo : 9730304944
@@ -50,20 +52,33 @@ export default class studentNavigation extends Component {
 
   // }
 
+  showAlert = () => {
+    this.setState({
+      showAlert: true
+    });
+  };
+ 
+  hideAlert = () => {
+    this.setState({
+      showAlert: false
+    });
+  };
   componentDidMount() {
     // Instead of navigator.geolocation, just use Geolocation.
-    if (hasLocationPermission) {
-        Geolocation.getCurrentPosition(
+
+    navigator.geolocation.getCurrentPosition(
             (position) => {
                 console.log(position);
             },
             (error) => {
-                // See error code charts below.
-                console.log(error.code, error.message);
+              console.log(JSON.stringify(error.message));
+              this.setState({
+                showAlert: true
+              });
             },
             { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
         );
-    }
+
 }
 
   handleCall = () =>{
@@ -112,6 +127,7 @@ handleRickshawPress = () =>{
 
 
   render() {
+    const {showAlert} = this.state;
     console.disableYellowBox = true;
     return (
       <View style={{flex:1 , backgroundColor:'#BA68C8'}}>
@@ -158,7 +174,25 @@ handleRickshawPress = () =>{
           </View>
 
         </View>
-
+        <AwesomeAlert
+          show={showAlert}
+          showProgress={false}
+          title="No Location"
+          message="Turn On Location Services"
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={true}
+          // showConfirmButton={true}
+          cancelText="Cancel"
+          confirmText="Yes, delete it"
+          confirmButtonColor="#DD6B55"
+          onCancelPressed={() => {
+            this.hideAlert();
+          }}
+          onConfirmPressed={() => {
+            this.hideAlert();
+          }}
+        />
 {/* ------------------------------------------------Tum   Tum---------------------------------------------------------------------------------------------------- */}
 
         <Dialog
