@@ -7,10 +7,10 @@ var userSchema=new Schema({
     age:Number,
     password:String,
     preferences:[{type:String}],
+    bookmarks:[{type:String}],
     bias_level:[{type:Number,enum:[0,1,2]}]//left,center,right
 })
 
 userSchema.plugin(passportlocalmongoose)
 module.exports=mongoose.model("user",userSchema)
-
 

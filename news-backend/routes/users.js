@@ -3,7 +3,8 @@ var router=exp.Router()
 var usercntrlr=require('../controller/usercntrlr')
 
 
-router
-.route('/UsersList')
-.get(usercntrlr.displayAll)
-module.exports=router
+
+router.get("/search",function(req,res){
+  
+
+});

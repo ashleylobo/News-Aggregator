@@ -1,11 +1,14 @@
 import React,{Component} from "react";
 import { AppRegistry, Image, StatusBar,Text } from "react-native";
-import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View,Fab} from "native-base";
+import { Button,Container,Tab,TabHeaing, Tabs,Header,List,Content,Icon,Thumbnail, View,ScrollableTabView,Page,Fab} from "native-base";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import axios from 'axios';
 import SignIn from './SignIn';
 import Register from './Register';
 import General from './General';
-
+import Sports from './sports';
+import Entertainment from './entertainment';
+import Finance from './finance';
 
 const routes = [
                 {author :"Jack ",title:"PM Modi's address to nation did not violate model code:EC",description:"Prime Minister Narendra Modi's address to the nation on the successful test-firing of an anti-satellite missile did not violate provisions of the model code of conduct, the Election Commission said on Friday night.",name:"Profile",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201903/modi_AP.jpeg?a0CAPULR2DuLsseSzSsuexLB1WhOCDpW",publishedAt:"2019-03-30T07:00:56Z",},
@@ -15,8 +18,34 @@ const routes = [
                 {author :"William ",title:"Brexit: What happens next after latest government defeat?",description:"The UK was supposed to leave the EU on Friday but, following the government's latest setback, it is no clearer when Brexit will happen.The UK faces a new deadline of 12 April to come up with a way forward.",name:"Chatroom",url:"https://timesofindia.indiatimes.com/elections " ,urlToImage:"https://ichef.bbci.co.uk/news/660/cpsprodpb/FF35/production/_106233356_mediaitem106231222.jpg",publishedAt:"2019-03-30T07:00:56Z", }
                 ];
 
+
+
 export default class ListItem extends Component {
-  render() {
+  constructor(props)  {
+    super(props);
+    this.state = {
+        errorMessaroutesnews:[]
+    } 
+
+  } 
+
+  // // componentDidMount(){
+  // //   // axios.get('http://192.168.43.57:2454/api/getnews')
+  // //   // .then((res)=>{
+  // //   //   // console.log("called ",res.data)
+  // //   //   this.setState({news:res.data})
+  // //   //    console.log("Cool ",this.state.news)
+
+  // //   }
+    
+  // //   )
+  // //   .catch((d)=>{
+  // //     console.log("error ",d) 
+  // //   })
+    
+    
+  //     }
+   render() {
     
     return (    
       
@@ -26,33 +55,63 @@ export default class ListItem extends Component {
               
                 <View style={{flex:1,}}>
                 <Header style={{height: 0}} hasTabs/>
-                <Tabs tabBarUnderlineStyle={{borderBottomWidth:0,backgroundColor: 'white', opacity:1}} >
+                <Tabs  >
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
+                         textStyle={{color: 'white', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40,width:100}}
                          
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         activeTabStyle={{backgroundColor: '', height: 40,width:1000}}
                          heading="For You">
                         <SignIn navigation={this.props.navigation} data={routes}/>
                     </Tab>
-
+                    
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="Trending">
                         <Register navigation={this.props.navigation} data={routes}/>
                     </Tab>
                     <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
-                         textStyle={{color: 'black', fontSize: 12}}
-                         tabStyle={{backgroundColor: '#fff', height: 40}}
-                         activeTabStyle={{backgroundColor: '#00a4fe', height: 40}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
                          heading="General Elections">
                         <General navigation={this.props.navigation} data={routes}/>
                     </Tab>
+                    <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
+                         heading="Sports">
+                        <Sports navigation={this.props.navigation} data={routes}/>
+                    </Tab>
+                    {/* <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
+                         heading="Finance">
+                        <Finance navigation={this.props.navigation} data={routes}/>
+                    </Tab> */}
+                    {/* <Tab activeTextStyle={{color: '#fff', fontWeight: 'bold'}}
+                         textStyle={{color: '#fff', fontSize: 12}}
+                         tabStyle={{backgroundColor: '', height: 40}}
+                         activeTabStyle={{backgroundColor: '#', height: 40}}
+                         heading="Astro">
+                        <Entertainment navigation={this.props.navigation} data={routes}/>
+                    </Tab> */}
                     
                 </Tabs>
 
+{/* <ScrollableTabView
+              tabBarActiveTextColor="#53ac49"
+              renderTabBar={() => <TabBar underlineColor="#53ac49" />}>
+            <Page tabLabel={{label: "Page #1"}} label="Page #1"/>
+            <Page tabLabel={{label: "Page #2 aka Long!", badge: 3}} label="Page #2 aka Long!"/>
+            <Page tabLabel={{label: "Page #3"}} label="Page #3"/>
+            <Page tabLabel={{label: "Page #4 aka Page"}} label="Page #4 aka Page"/>
+            <Page tabLabel={{label: "Page #5"}} label="Page #5"/>
+          </ScrollableTabView> */}
 
                   
                   {/* <View style={{flexDirection:'row' ,marginTop:7 , marginBottom: 7}}> */}
@@ -74,13 +133,18 @@ export default class ListItem extends Component {
                     style={{
                       header: {},
                       tab: {
-                          backgroundColor: '#0083d9'
+                          backgroundColor: '#0083d9',
+                          
                       },
-                      alignSelf:'center',
-                      borderBottomColor: 'black',
-                      borderBottomWidth: 0,
-                      paddingLeft:20,
-                      width:370
+                      tabUnderline: {
+                        borderBottomColor: "00a4fe",
+                        borderBottomWidth: 5,
+                      },
+                      // alignSelf:'center',
+                      // borderBottomColor: 'black',
+                      // borderBottomWidth: 6,
+                      // paddingLeft:20,
+                      // width:3700
                     }}
                   />
             

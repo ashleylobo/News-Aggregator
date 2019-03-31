@@ -8,7 +8,7 @@ router
     // console.log("type is ",typeof(req.user))
     res.render('homePage',{req:req})
 })
-
+router
 .route('/registerUser')
 .post((req,res)=>{
     data=req.body.data
@@ -17,15 +17,11 @@ router
     .then((s)=>{
         console.log("registered successfully ",s)
 
-    })
-    .catch((e)=>{
-        print("error ocurred")
-    })
-})
-
 router
 .route("/datasent")
 .post((req,res)=>{
     res.render('second',{d:req.body.data,req:req})  //when data comes from form
 })
+
+
 module.exports=router
