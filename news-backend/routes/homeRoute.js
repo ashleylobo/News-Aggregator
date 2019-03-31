@@ -8,20 +8,14 @@ router
     // console.log("type is ",typeof(req.user))
     res.render('homePage',{req:req})
 })
-// router
-// .route('/registerUser')
-// .post((req,res)=>{
-//     data=req.body.data
-//     print("data received ",data)
-//     User.create({data})
-//     .then((s)=>{
-//         console.log("registered successfully ",s)
-
-//     })
-//     .catch((e)=>{
-//         print("error ocurred")
-//     })
-// })
+router
+.route('/registerUser')
+.post((req,res)=>{
+    data=req.body.data
+    print("data received ",data)
+    User.create({data})
+    .then((s)=>{
+        console.log("registered successfully ",s)
 
 router
 .route("/datasent")

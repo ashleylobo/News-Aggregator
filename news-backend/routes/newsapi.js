@@ -7,4 +7,11 @@ router
 .route('/getnews')
 .get(apicntrlr.getnews)
 
-module.exports=router
+
+
+router
+.route("/addfollow")
+.post(apicntrlr.addfollow)
+
+
+module.exports=router   

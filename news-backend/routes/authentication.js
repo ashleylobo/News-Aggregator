@@ -2,7 +2,6 @@ var exp=require('express')
 var router=exp.Router()
 var passport=require('passport')
 var User=require('../model/user')
-var flash = require('express-flash-messages')
 
 router
 .route('/register')

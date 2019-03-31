@@ -1,8 +1,14 @@
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('22284ec06b3e4717ac7dec4364156177');
+const User =require("../model/user")
 
 var WordPOS = require('wordpos'),
     wordpos = new WordPOS();
+getnews=(req,res)=>{
+  console.log("hello")
+    newsapi.v2.topHeadlines({
+    source: 'News18.com ',
+    language: 'en',
 
 var Promise = require('promise');
 let Parser = require('rss-parser');
@@ -33,6 +39,7 @@ const JSON = require('circular-json');
 //   }); 
 // }
 
+<<<<<<< HEAD
 
 getnews=(req,res)=>{
     // console.log(req)
@@ -58,6 +65,40 @@ getnews=(req,res)=>{
       }
     */
 
+=======
+getnews=()=>{
+    newsapi.v2.everything({
+    q: 'bitcoin',
+    sources: 'bbc-news,the-verge',
+    domains: 'bbc.co.uk, techcrunch.com',
+    from: '2017-12-01',
+    to: '2017-12-12',
+    language: 'en',
+    sortBy: 'relevancy',
+    page: 2
+  }).then(response => {
+    console.log("News sent to native ",response);
+    res.send(response.articles)
+
+    
+    console.log(response);
+   
+  });
+}
+
+addfollow=(req,res)=>{
+  follow=req.body.data
+  console.log("addfollower ",req.body.data)//.data since from axios passing as d
+  User.findOne({name:"Joy"})
+  .then((u)=>{
+
+    u.preferences.push(follow)
+    u.save()
+  })
+  res.send(req.body.data)
+}
+module.exports={getnews,addfollow}
+>>>>>>> master
 
 keywords =(req,res)=>{
   wordpos.getNouns('hello monday how are you', function(result){

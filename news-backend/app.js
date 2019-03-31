@@ -39,8 +39,8 @@ passport.use(new localstrategy(function(username, password, done) {
     });
   }
 ))
-// passport.serializeUser(User.serializeUser())
-// passport.deserializeUser(User.deserializeUser())
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 // app.use(isLoggedIn);
 
 //**************************** Routes section ********************************//
@@ -48,11 +48,10 @@ var homeRoute=require('./routes/homeRoute')
 app.use('/',homeRoute)
 var auth=require('./routes/authentication')
 app.use('/authentication/',auth)
-
-
+var users=require('./routes/users')
+app.use('/users/',users)
 var api=require('./routes/newsapi')
-app.use("/api",api)
-
+app.use("/api/",api)
 var keywords=require('./routes/keywords')
 app.use("/keywords",keywords)
 
@@ -88,10 +87,18 @@ function isLoggedIn(req, res, next){
  
 // })();
 
-app.get("*",function(req,res){
-	res.send("<h1>404 Page Not Found<h1>");
-});
+// User.create({
+//   name:"Joy",
+//   email:"joy@gmail.com",
+//   age:18,
+//   password:"secret",
+//   preferences:["History,Science,India"]
 
+
+// }).then((s)=>{
+//   console.log("created")
+//   s.save()
+// })
 
 app.listen(port,()=>{
     console.log("Site live on ",port +" Address is ",addr)
