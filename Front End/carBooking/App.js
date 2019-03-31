@@ -31,8 +31,8 @@ import ChatBot from './components/ChatBot'
 
 const Mdn = createDrawerNavigator({
   
-  listTimeTable:{screen:ListTimeTable},
-  
+  listTimeTable:{screen:ListTimeTable},  
+  driverdummy:{screen:DriverDummy},    
 },
 {
   contentComponent: SideBar,
@@ -57,8 +57,7 @@ const AppNavigator = createStackNavigator({
   chatBot:{screen:ChatBot},
   Preferences :{screen:Login},
   tv:{screen:TV},// fav:{screen:favourites},
-  driverLogin:{screen:LoginDriver},
-  driverdummy:{screen:DriverDummy},                                              //rename  screen to ur calssName and put dhang ka label instead of driverdummy
+  driverLogin:{screen:LoginDriver},                                          //rename  screen to ur calssName and put dhang ka label instead of driverdummy
   driverdummynew:{screen:DriverDummyNew},       //rename  screen to ur calssName and put dhang ka label instead of driverdummynew
   // chatBot:{screen:ChatBot},
    profile: Mdn,
