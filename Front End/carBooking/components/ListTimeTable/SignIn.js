@@ -31,6 +31,8 @@ export default class SignIn extends Component {
           visible: false,
         }
         this.openLink=this.openLink.bind(this)
+        this.handleDoubleTap=this.handleDoubleTap.bind(this)
+        this.handleButtonPress=this.handleButtonPress.bind(this)
     } 
     
     
@@ -40,23 +42,17 @@ export default class SignIn extends Component {
           visible: true,
           
         },
-        () => {
-          this.hideToast();
-        },
+       
       );
     };
-    hideToast = () => {
-      this.setState({
-        visible: false,
-      });
-    };
+
     // sendURL=() { console.log(data.url); }
     lastTap = null;
-    handleDoubleTap = () => {
+    handleDoubleTap = (data) => {
       const now = Date.now();
       const DOUBLE_PRESS_DELAY = 300;
       if (this.lastTap && (now - this.lastTap) < DOUBLE_PRESS_DELAY) {
-        alert("as");
+        alert("data");
         // this.sendURL(data.url);
         console.log(data.url);
       } else {
@@ -148,14 +144,13 @@ export default class SignIn extends Component {
                     <Body style={{flexDirection: 'row'}}>
                     <Body >
                       
-                      <Text onPress={this.handleDoubleTap}>{data.title}</Text>
+                      <Text onPress={this.handleDoubleTap({data})}>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
                     <Icon name="star" style={{ color: '#dae031' }} onPress={()=>{
                       this.follow(data.source.name)
                     }} />
 
-                    <Icon name="star" style={{ color: '#dae031' }} onPress={this.handleDoubleTap} />
 
                     </Body>
                   </Left>
