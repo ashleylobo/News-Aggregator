@@ -1,4 +1,4 @@
-package com.carbooking;
+package com.SmartNews;
 
 import android.app.Application;
 

@@ -19,33 +19,12 @@ export default class SignIn extends React.Component {
           visible: false,
         }
         this.openLink=this.openLink.bind(this)
-        this.handleDoubleTap
     } 
     
     
-    handleButtonPress = () => {
-      this.setState(
-        {
-          visible: true,
-          
-        },
-       
-      );
-    };
 
     // sendURL=() { console.log(data.url); }
-    lastTap = null;
-    handleDoubleTap = (data) => {
-      const now = Date.now();
-      const DOUBLE_PRESS_DELAY = 300;
-      if (this.lastTap && (now - this.lastTap) < DOUBLE_PRESS_DELAY) {
-        alert("as");
-        // this.sendURL(data.url);
-        // console.log(data.url);
-      } else {
-        this.lastTap = now;
-      }
-    }
+   
     
 
     async openLink(url) {
@@ -131,7 +110,7 @@ export default class SignIn extends React.Component {
                     <Body style={{flexDirection: 'row'}}>
                     <Body >
                       
-                      <Text onPress={this.handleDoubleTap({data})}>{data.title}</Text>
+                      <Text >{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
                     <Icon name="star" style={{ color: '#dae031' }} onPress={()=>{
