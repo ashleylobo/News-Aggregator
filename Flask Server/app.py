@@ -1,5 +1,6 @@
 import flask
 import os
+import requests 
 from flask import jsonify, request
 from flask import flash, redirect, url_for, session
 from joblib import load
@@ -62,7 +63,11 @@ def predict():
         return jsonify( {'fulfillmentText':text} )
     else:
         print("hi")
-        return jsonify( {'fulfillmentText':lang} )
+        langApi="http://ee9882ff.ngrok.io/rss/getrss"
+        data={'context':'Ipl'}
+        r = requests.post(url=langApi, data=data) 
+
+        return jsonify( {'fulfillmentText':r.text} )
 
     # message=[{'text':{'text':[res.json()['articles'][0]['urlToImage'],res.json()['articles'][0]['description']]}}]
     # print(api)
