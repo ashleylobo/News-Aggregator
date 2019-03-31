@@ -11,6 +11,10 @@ const htmlToText = require('html-to-text');
 //     source: 'News18.com ',
 //     language: 'en',
 
+var Promise = require('promise');
+let Parser = require('rss-parser');
+const JSON = require('circular-json');
+
 
 // let parser = new Parser();
 //     (async () => {
@@ -28,6 +32,13 @@ const htmlToText = require('html-to-text');
      
      
 //     })();
+// getnews =(req,res)=>{
+//   var req = parser.parse(req);
+//   console.log(req)
+//   wordpos.getNouns('hello monday how are you', function(result){
+//     console.log('efsfsdfsd')
+//   }); 
+// }
 
 getnews=(req,res)=>{
     newsapi.v2.everything({
@@ -63,10 +74,11 @@ addfollow=(req,res)=>{
   })
   res.send(req.body.data)
 }
+module.exports={getnews,addfollow}
 
 keywords =(req,res)=>{
-  wordpos.getNouns(req, function(result){
-    console.log(result);
+  wordpos.getNouns('hello monday how are you', function(result){
+    console.log('efsfsdfsd')
   }); 
 }
 
