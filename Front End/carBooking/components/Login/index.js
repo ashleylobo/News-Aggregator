@@ -17,16 +17,16 @@ export default class Login extends Component {
         super(props);
         this.state = {
             abc: 1,
-            sports:True,
-            Entertainment:True,
-            Science:True,
-            Politics:True,
-            Finance:True,
-            Technology:True,
-            English:True,
-            Hindi:True,
-            Marathi:True,
-            Gujarati:True
+            sports:true,
+            Entertainment:true,
+            Science:true,
+            Politics:true,
+            Finance:true,
+            Technology:true,
+            English:true,
+            Hindi:true,
+            Marathi:true,
+            Gujarati:true
         };
     }
 
@@ -68,39 +68,39 @@ export default class Login extends Component {
                 {/* <Image style={styles.avatar} source={require('../../assets/images/tumtum.jpg')}/> */}
                 <View style={styles.body}>
                     <View>
-                        {/* <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#0083d9"}}
+                        {/* <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#fff"}}
                                 onPress={() => this.props.navigation.navigate('studentLogin')}>
                             <Text style={{color:'black'}} >I'm a Student</Text>
                         </Button> */}
                         
                         <View style={{flexDirection:"row"}}>
                         <Button  rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.sports?'#0083d9':'white'  }}
-                           onPress={() => {this.backgroundColorChange(this.state.sports)}}>
+                           onPress={() => this.setState({sports:!(this.state.sports)})}>
                             <Text style={{color:'black'}}>Sports</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => this.props.navigation.navigate('driverLogin')}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.Entertainment?"#0083d9":"white"  }}
+                            onPress={() => this.setState({Entertainment:!(this.state.Entertainment)})}>
                             <Text style={{color:'black'}}>Entertainment</Text>
                         </Button>
                         </View>
                         
                         <View style={{flexDirection:"row"}}>
-                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.Science?"#0083d9":"white"  }}
+                            onPress={() => this.setState({Science:!(this.state.Science)})}>
                             <Text style={{color:'black'}}>Science</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.Politics?"#0083d9":"white"  }}
+                            onPress={() => this.setState({Politics:!(this.state.Politics)})}>
                             <Text style={{color:'black'}}>Politics</Text>
                         </Button>
                         </View>
                         <View style={{flexDirection:"row"}}>
-                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.Finance?"#0083d9" :"white" }}
+                            onPress={() => this.setState({Finance:!(this.state.Finance)})}>
                             <Text style={{color:'black'}}>Finance</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.Technology?"#0083d9" :"white" }}
+                            onPress={() => this.setState({Technology:!(this.state.Technology)})}>
                             <Text style={{color:'black'}}>Technology</Text>
                         </Button>
                         </View>
@@ -113,36 +113,41 @@ export default class Login extends Component {
                         </Button>
                         <View style={styles.body}>
                     
-                        {/* <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#0083d9"}}
+                        {/* <Button rounded info style={{textAlign:'center',justifyContent:'center',width:260 ,marginTop: 30, alignSelf: 'center', backgroundColor:"#000160"}}
                                 onPress={() => this.props.navigation.navigate('studentLogin')}>
                             <Text style={{color:'black'}} >I'm a Student</Text>
                         </Button> */}
                         
                         <View style={{flexDirection:"row"}}>
-                        <Button  rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button  rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.English?"#0083d9" :"white"  }}
+                            onPress={() => this.setState({English:!(this.state.English)})}>
                             <Text style={{color:'black'}}>English</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.Hindi?"#0083d9":"white"   }}
+                            onPress={() => this.setState({Hindi:!(this.state.Hindi)})}>
                             <Text style={{color:'black'}}>हिंदी</Text>
                         </Button>
                         </View>
                         
                         <View style={{flexDirection:"row"}}>
-                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.Marathi?"#0083d9" :"white"  }}
+                            onPress={() => this.setState({Marathi:!(this.state.Marathi)})}>
                             <Text style={{color:'black'}}>मराठी</Text>
                         </Button>
-                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:"#0083d9"  }}
-                            onPress={() => {this.backgroundColorChange(this.backgroundColor)}}>
+                        <Button rounded info style={{textAlign:'center',marginLeft:10,alignSelf: 'center',justifyContent:'center' ,width:160 , marginTop: 20, backgroundColor:this.state.Gujarati?"#0083d9" :"white"  }}
+                            onPress={() => this.setState({Gujarati:!(this.state.Gujarati)})}>
                             <Text style={{color:'black'}}>ગુજરતી</Text>
                         </Button>
                         </View>
                                         
                         </View>
+                        <Button rounded style={{alignSelf:'center',width:110,textAlign:'center',justifyContent:'center'
+                     }}>
+            <Text onPress={ () =>      this.props.navigation.navigate('profile')} style={{color:'black'}}>Submit</Text>
+        </Button>
 
             </View>
+            
                
         );
     }
@@ -171,7 +176,7 @@ const styles = StyleSheet.create({
       fontWeight:'600',
     },
     body:{
-      marginTop:20,
+      marginTop:5,
     },
     bodyContent: {
       flex: 1,
