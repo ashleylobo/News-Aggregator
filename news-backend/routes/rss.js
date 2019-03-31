@@ -5,6 +5,6 @@ var router=exp.Router()
 
 router
 .route('/getrss')
-.get(apicntrlr.getrss)
+.post(apicntrlr.getrss)
 
 module.exports=router

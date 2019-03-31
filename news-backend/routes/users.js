@@ -4,7 +4,10 @@ var usercntrlr=require('../controller/usercntrlr')
 
 
 
-router.get("/search",function(req,res){
+// router.get("/search",function(req,res){
   
 
-});
+// });
+
+
+module.exports=router

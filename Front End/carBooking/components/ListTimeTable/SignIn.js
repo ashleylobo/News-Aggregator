@@ -121,13 +121,12 @@ console.log("success")
                       <Text>{data.title}</Text>
                       <Text note>Published at :{data.publishedAt}</Text>
                     </Body>
-<<<<<<< HEAD
                     <Icon name="star" style={{ color: '#dae031' }} onPress={()=>{
                       this.follow(data.source.name)
                     }} />
-=======
+
                     <Icon name="star" style={{ color: '#dae031' }} onPress={this.handleDoubleTap} />
->>>>>>> master
+
                     </Body>
                   </Left>
                 </CardItem>

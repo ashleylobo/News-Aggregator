@@ -16,7 +16,8 @@ router
     User.create({data})
     .then((s)=>{
         console.log("registered successfully ",s)
-
+    })
+})
 router
 .route("/datasent")
 .post((req,res)=>{
