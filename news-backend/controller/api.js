@@ -11,7 +11,10 @@ getnews=(req,res)=>{
     language: 'en',
 
 var Promise = require('promise');
-// let Parser = require('rss-parser');
+let Parser = require('rss-parser');
+const JSON = require('circular-json');
+
+
 // let parser = new Parser();
 //     (async () => {
 //       try{
@@ -28,7 +31,41 @@ var Promise = require('promise');
      
      
 //     })();
+// getnews =(req,res)=>{
+//   var req = parser.parse(req);
+//   console.log(req)
+//   wordpos.getNouns('hello monday how are you', function(result){
+//     console.log('efsfsdfsd')
+//   }); 
+// }
 
+<<<<<<< HEAD
+
+getnews=(req,res)=>{
+    // console.log(req)
+    newsapi.v2.everything({ 
+    q:req.query.title,
+    sources:req.query.sources,
+    domains: req.query.domain,
+    from: '2019-21-03',
+    to: '2019-02-27',
+    language:req.query.language,
+    sortBy: "relevancy",
+    },
+    function(err,res){
+    console.log(res)
+  });
+}
+
+
+    /*
+      {
+        status: "ok",
+        articles: [...]
+      }
+    */
+
+=======
 getnews=()=>{
     newsapi.v2.everything({
     q: 'bitcoin',
@@ -61,10 +98,11 @@ addfollow=(req,res)=>{
   res.send(req.body.data)
 }
 module.exports={getnews,addfollow}
+>>>>>>> master
 
 keywords =(req,res)=>{
-  wordpos.getNouns(req, function(result){
-    console.log(result);
+  wordpos.getNouns('hello monday how are you', function(result){
+    console.log('efsfsdfsd')
   }); 
 }
 
@@ -77,6 +115,7 @@ getrss =(req,res)=>{
        
         feed.items.forEach(item => {
           console.log(item.title + ':' + item.link)
+          res.send({s:"heelo"})
         });
       }
       catch{
