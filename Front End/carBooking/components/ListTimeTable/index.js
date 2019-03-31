@@ -7,6 +7,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SocketIOClient from 'socket.io-client';
 import IPADDR from '../../assets/constant/IP';
 import call from 'react-native-phone-call'
+import Geolocation from 'react-native-geolocation-service';
 
 export default class studentNavigation extends Component {
 
@@ -38,16 +39,32 @@ export default class studentNavigation extends Component {
   }
 
 
+  // componentDidMount() {
+
+  //   this.socket.on('accept', (msg)=>{
+  //     var findingTumTumMsg = `Mr ${msg.driverId} has accepted your request`
+  //     console.log(msg)
+  //     this.setState({ accepted : true , 
+  //       driverId : msg.driverId, findingTumTumMsg , driverContactNo : msg.contactNo })
+  //   })
+
+  // }
+
   componentDidMount() {
-
-    this.socket.on('accept', (msg)=>{
-      var findingTumTumMsg = `Mr ${msg.driverId} has accepted your request`
-      console.log(msg)
-      this.setState({ accepted : true , 
-        driverId : msg.driverId, findingTumTumMsg , driverContactNo : msg.contactNo })
-    })
-
-  }
+    // Instead of navigator.geolocation, just use Geolocation.
+    if (hasLocationPermission) {
+        Geolocation.getCurrentPosition(
+            (position) => {
+                console.log(position);
+            },
+            (error) => {
+                // See error code charts below.
+                console.log(error.code, error.message);
+            },
+            { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+        );
+    }
+}
 
   handleCall = () =>{
     var num = this.state.driverContactNo;
